@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADNOC OASIS AI Copilot — Technical Architecture & Complete Feature Specification</title>
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Mermaid.js for Dynamic Diagram Rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.mermaid) {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'dark',
+          themeVariables: {
+            primaryColor: '#0056b3',
+            primaryTextColor: '#f8fafc',
+            primaryBorderColor: '#0284c7',
+            lineColor: '#38bdf8',
+            secondaryColor: '#1e293b',
+            tertiaryColor: '#0f172a'
+          }
+        });
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #0b1120;
+      --bg-secondary: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #273549;
+      --bg-glass: rgba(30, 41, 59, 0.7);
+      --border-color: #334155;
+      --border-focus: #38bdf8;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --adnoc-blue: #0056b3;
+      --adnoc-light-blue: #0284c7;
+      --adnoc-cyan: #38bdf8;
+      --adnoc-gold: #f59e0b;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+      --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.15);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --bg-glass: rgba(255, 255, 255, 0.85);
+      --border-color: #cbd5e1;
+      --border-focus: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --adnoc-blue: #0056b3;
+      --adnoc-light-blue: #0284c7;
+      --adnoc-cyan: #0284c7;
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 20px rgba(2, 132, 199, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 14px;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Top Sticky Header */
+    .header-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-svg {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+    }
+
+    .brand-titles h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-titles .tagline {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--adnoc-cyan);
+      background: var(--bg-card-hover);
+      color: var(--adnoc-cyan);
+    }
+
+    .theme-toggle-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--adnoc-cyan);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 32px 32px 80px 32px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(0, 86, 179, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--adnoc-cyan);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 950px;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .hero-metadata-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .metadata-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .metadata-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .metadata-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Section Styling */
+    .doc-section {
+      margin-bottom: 48px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-header {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title-num {
+      background: var(--adnoc-blue);
+      color: white;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Callout & Notice Boxes */
+    .callout {
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid;
+      background: var(--bg-card);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .callout-info {
+      border-left-color: var(--adnoc-cyan);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-left-width: 4px;
+    }
+
+    .callout-warning {
+      border-left-color: var(--adnoc-gold);
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-left-width: 4px;
+    }
+
+    .callout-success {
+      border-left-color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-left-width: 4px;
+    }
+
+    .callout-purple {
+      border-left-color: var(--accent-purple);
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-left-width: 4px;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Card Grids */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--adnoc-cyan);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .card-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--adnoc-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .card-description {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Interactive Filter Bar */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      flex: 1;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 14px 10px 42px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--adnoc-cyan);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .filter-group-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      min-width: 130px;
+    }
+
+    .filter-pill {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--text-muted);
+      color: var(--text-primary);
+    }
+
+    .filter-pill.active {
+      background: var(--adnoc-blue);
+      border-color: var(--adnoc-cyan);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 86, 179, 0.3);
+    }
+
+    .filter-pill .count {
+      font-size: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+
+    .filter-status-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .reset-filters-btn {
+      background: none;
+      border: none;
+      color: var(--adnoc-cyan);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+      text-decoration: underline;
+    }
+
+    /* Status Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    /* Discussion Status Badges */
+    .status-required {
+      background: rgba(0, 86, 179, 0.25);
+      border: 1px solid rgba(0, 86, 179, 0.6);
+      color: #60a5fa;
+    }
+
+    .status-discussed {
+      background: rgba(14, 165, 233, 0.2);
+      border: 1px solid rgba(14, 165, 233, 0.5);
+      color: #38bdf8;
+    }
+
+    .status-client-confirmation {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fbbf24;
+    }
+
+    .status-architecture-decision {
+      background: rgba(139, 92, 246, 0.25);
+      border: 1px solid rgba(139, 92, 246, 0.6);
+      color: #c084fc;
+    }
+
+    .status-future-enhancement {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #34d399;
+    }
+
+    .status-constraint {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #f87171;
+    }
+
+    .status-not-initial {
+      background: rgba(100, 116, 139, 0.2);
+      border: 1px solid rgba(100, 116, 139, 0.5);
+      color: #cbd5e1;
+    }
+
+    /* Feasibility Badges */
+    .feasibility-client {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10b981;
+      color: #34d399;
+    }
+
+    .feasibility-copilot {
+      background: rgba(14, 165, 233, 0.2);
+      border: 1px solid #0284c7;
+      color: #38bdf8;
+    }
+
+    .feasibility-backend {
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid #8b5cf6;
+      color: #c084fc;
+    }
+
+    .feasibility-conflict {
+      background: rgba(244, 63, 94, 0.2);
+      border: 1px solid #f43f5e;
+      color: #fb7185;
+    }
+
+    /* Interactive Data Table */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: var(--shadow-md);
+      margin-top: 16px;
+    }
+
+    table.spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    table.spec-table th {
+      background: var(--bg-secondary);
+      padding: 14px 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--border-color);
+      white-space: nowrap;
+      position: sticky;
+      top: 60px;
+      z-index: 10;
+    }
+
+    table.spec-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    table.spec-table tr:hover td {
+      background-color: var(--bg-card-hover);
+    }
+
+    table.spec-table td.col-id {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--adnoc-cyan);
+      width: 50px;
+    }
+
+    table.spec-table td.col-name {
+      font-weight: 700;
+      color: var(--text-primary);
+      width: 220px;
+    }
+
+    table.spec-table td.col-desc {
+      width: 260px;
+    }
+
+    table.spec-table td.col-status {
+      width: 150px;
+    }
+
+    table.spec-table td.col-feasibility {
+      width: 190px;
+    }
+
+    table.spec-table td.col-reason {
+      width: 320px;
+    }
+
+    table.spec-table td.col-req {
+      width: 340px;
+    }
+
+    /* Collapsible Table Details */
+    .details-toggle {
+      font-size: 11px;
+      color: var(--adnoc-cyan);
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 6px;
+      display: inline-block;
+    }
+
+    .tech-code-snippet {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #e2e8f0;
+      margin-top: 6px;
+      overflow-x: auto;
+    }
+
+    /* Diagram Styling */
+    .diagram-container {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0;
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    .diagram-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .svg-diagram {
+      width: 100%;
+      height: auto;
+      max-width: 1050px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Code Blocks */
+    pre.code-block {
+      background: #060913;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #f1f5f9;
+      overflow-x: auto;
+      line-height: 1.5;
+      margin: 12px 0;
+    }
+
+    /* Key Discovery Callout Box */
+    .discovery-box {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: 14px;
+      padding: 24px;
+      margin: 24px 0;
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.15);
+    }
+
+    .discovery-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #c084fc;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .discovery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .discovery-card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .discovery-card h4 {
+      font-size: 14px;
+      color: #e2e8f0;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .discovery-card p {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer.doc-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0;
+      margin-top: 60px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .header-bar, .filter-panel, .theme-toggle-btn {
+        display: none !important;
+      }
+      .table-container {
+        border: 1px solid #ccc;
+      }
+      table.spec-table th {
+        background: #f1f5f9 !important;
+        color: #000 !important;
+        position: static !important;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- Top Navigation Header -->
+  <header class="header-bar">
+    <div class="brand-section">
+      <svg class="brand-logo-svg" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="18" r="17" fill="#0056b3" />
+        <path d="M18 5C10.82 5 5 10.82 5 18C5 25.18 10.82 31 18 31C24.18 31 29.35 26.68 30.65 20.93C27.56 22.42 23.95 23.23 20.15 23.23C13.56 23.23 7.95 19.38 5.76 13.9C8.36 8.5 13.9 5 18 5Z" fill="white" opacity="0.95"/>
+        <path d="M18 9C13.5 9 9.7 11.5 8 15C10 12.2 13.5 10.5 17.5 10.5C22.5 10.5 26.5 13.5 28 17.5C27 12.5 23 9 18 9Z" fill="#38bdf8"/>
+      </svg>
+      <div class="brand-titles">
+        <h1>ADNOC OASIS Copilot Architecture</h1>
+        <div class="tagline">Operational Assurance System for Integrity & Safety | Technical Specification</div>
+      </div>
+    </div>
+    <div class="header-controls">
+      <a href="#architecture-unified" class="nav-btn">Direct Secret Architecture</a>
+      <a href="#copilot-mcp" class="nav-btn">Copilot Studio & MCP</a>
+      <a href="#feature-matrix" class="nav-btn">64-Feature Matrix</a>
+      <a href="#client-recommendations" class="nav-btn">Client Strategy</a>
+      <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode">
+        🌓 Theme
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-badge">Enterprise Engineering Blueprint & Client Deliverable</div>
+      <h1 class="hero-title">ADNOC AI Chatbot: Architecture, Feasibility & MCP Server Integration</h1>
+      <p class="hero-subtitle">
+        A deep technical evaluation of the 64 features discussed on 28 October 2026. This specification details the 
+        <strong>Unified Direct Line Secret Key Embed</strong> architecture, evaluates the <strong>Claude Sonnet 4.6</strong> engine configured in Copilot Studio, and outlines the integration of a custom <strong>Model Context Protocol (MCP) Server</strong> to deliver high-performance, secure database and KPI analytics.
+      </p>
+
+      <div class="hero-metadata-grid">
+        <div class="metadata-item">
+          <span class="metadata-label">Client / Entity</span>
+          <span class="metadata-value">Abu Dhabi National Oil Company (ADNOC)</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">System Target</span>
+          <span class="metadata-value">OASIS Operational Integrity Portal</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Integration Protocol</span>
+          <span class="metadata-value">Direct Line v3.0 REST (No WebChat SDK)</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">AI Engine & Model</span>
+          <span class="metadata-value">Copilot Studio (Claude Sonnet 4.6)</span>
+        </div>
+        <div class="metadata-item">
+          <span class="metadata-label">Total Features Assessed</span>
+          <span class="metadata-value">64 Complete Features (100% Unabridged)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRITICAL DISCOVERY FROM SCREENSHOTS -->
+    <section class="discovery-box">
+      <div class="discovery-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        Crucial Project Discoveries from Live Copilot Studio Configuration
+      </div>
+      <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.6;">
+        Analysis of the current ADNOC Copilot Studio tenant (<strong>"Adnoc Chatbot test"</strong>) reveals two monumental architectural facts that directly clarify features previously marked as <em>"Client confirmation"</em> or <em>"Architecture decision"</em>:
+      </p>
+      
+      <div class="discovery-grid">
+        <div class="discovery-card">
+          <h4>🤖 Model: Claude Sonnet 4.6 is Active</h4>
+          <p>
+            Your Copilot Studio instance is configured with <strong>Claude Sonnet 4.6</strong> as its underlying reasoning model. This proves that <strong>Feature 33 (Configurable AI Model)</strong> and <strong>Feature 34 (Multiple AI Model Support / Anthropic)</strong> are <strong>ALREADY supported and active</strong> inside your Copilot Studio tenant.
+          </p>
+        </div>
+
+        <div class="discovery-card">
+          <h4>🗄️ SQL Tools & 5 Knowledge PDFs Attached</h4>
+          <p>
+            The agent is already equipped with SQL Server V2 connectors (<em>Get tables, Get rows, Get row, Execute a SQL query</em>) and 5 ADNOC operational PDFs covering <strong>MADB KPI, SIS PSA Health, Alarm Champion, and OIE Healthy Loops</strong>.
+          </p>
+        </div>
+
+        <div class="discovery-card">
+          <h4>⚡ MCP Server Feature in Tools Modal</h4>
+          <p>
+            Copilot Studio now features an <strong>"Add MCP server"</strong> tool capability. Rather than using raw, unconstrained SQL connectors (which present security and injection risks), we can connect a custom <strong>MCP Server</strong> built directly into your application backend!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: THE UNIFIED DIRECT SECRET KEY EMBED ARCHITECTURE -->
+    <section id="architecture-unified" class="doc-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><span class="section-title-num">01</span> Existing Project Architecture: Unified Direct Secret Embed</h2>
+          <div class="section-subtitle">How the React 19 Frontend embeds Copilot Studio directly using Direct Line Secret without external mobile token endpoints</div>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Architecture Clarification: The "Direct Line Secret Embed" Pattern
+        </div>
+        Your implementation unifies the <strong>Embed Code</strong> and <strong>Direct Secret Key</strong> into a single direct integration. You are <strong>not</strong> using an external anonymous mobile app token URL. Instead, the React widget embeds directly into the ADNOC OASIS dashboard and uses the <strong>Direct Line Secret Key</strong> to generate short-lived JWT conversation tokens directly from Azure Bot Framework (`POST https://directline.botframework.com/v3/directline/tokens/generate`). This provides full headless control, eliminating Microsoft's rigid Web Chat iframe.
+      </div>
+
+      <!-- PICTORIAL ARCHITECTURE DIAGRAM (SVG) -->
+      <div class="diagram-container">
+        <div class="diagram-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          Direct Line Secret Key Embed Sequence (Zero Microsoft SDK)
+        </div>
+
+        <!-- Inline Pure SVG Diagram for 100% offline visibility in any browser -->
+        <svg class="svg-diagram" viewBox="0 0 960 480" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0056b3"/>
+              <stop offset="100%" stop-color="#0284c7"/>
+            </linearGradient>
+            <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1e293b"/>
+              <stop offset="100%" stop-color="#0f172a"/>
+            </linearGradient>
+            <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8b5cf6"/>
+              <stop offset="100%" stop-color="#6d28d9"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Columns / Lifelines -->
+          <!-- React 19 Client -->
+          <rect x="40" y="20" width="180" height="45" rx="8" fill="url(#blueGrad)" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="130" y="47" fill="#ffffff" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">React 19 OASIS Widget</text>
+          <line x1="130" y1="65" x2="130" y2="450" stroke="#334155" stroke-dasharray="5 5" stroke-width="1.5"/>
+
+          <!-- Azure Bot Framework Direct Line v3 -->
+          <rect x="360" y="20" width="220" height="45" rx="8" fill="url(#darkGrad)" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="470" y="47" fill="#ffffff" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Direct Line v3 REST API</text>
+          <line x1="470" y1="65" x2="470" y2="450" stroke="#334155" stroke-dasharray="5 5" stroke-width="1.5"/>
+
+          <!-- Copilot Studio SaaS -->
+          <rect x="710" y="20" width="210" height="45" rx="8" fill="url(#purpleGrad)" stroke="#c084fc" stroke-width="1.5"/>
+          <text x="815" y="47" fill="#ffffff" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Copilot Studio (Claude 4.6)</text>
+          <line x1="815" y1="65" x2="815" y2="450" stroke="#334155" stroke-dasharray="5 5" stroke-width="1.5"/>
+
+          <!-- Step 1: POST /tokens/generate -->
+          <line x1="130" y1="100" x2="465" y2="100" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+          <text x="300" y="93" fill="#38bdf8" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">1. POST /v3/directline/tokens/generate (Bearer SECRET_KEY)</text>
+
+          <!-- Step 2: Returns JWT Token -->
+          <line x1="470" y1="130" x2="135" y2="130" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="300" y="123" fill="#34d399" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">2. Returns { token, conversationId, streamUrl }</text>
+
+          <!-- Step 3: POST /conversations -->
+          <line x1="130" y1="165" x2="465" y2="165" stroke="#38bdf8" stroke-width="2"/>
+          <text x="300" y="158" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">3. POST /v3/directline/conversations (Bearer Token)</text>
+
+          <!-- Step 4: Dispatch Activity with channelData -->
+          <line x1="130" y1="210" x2="465" y2="210" stroke="#f59e0b" stroke-width="2"/>
+          <text x="300" y="202" fill="#fbbf24" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">4. POST /activities (Prompt + channelData: route, GC, role)</text>
+
+          <!-- Step 5: Forward to Copilot Studio -->
+          <line x1="470" y1="230" x2="810" y2="230" stroke="#c084fc" stroke-width="2"/>
+          <text x="640" y="222" fill="#c084fc" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">5. Trigger Claude Sonnet 4.6 & Knowledge Grounding</text>
+
+          <!-- Step 6: Intermediate Reasoning (Thinking...) -->
+          <line x1="815" y1="275" x2="475" y2="275" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <line x1="470" y1="290" x2="135" y2="290" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <text x="300" y="283" fill="#c084fc" font-family="Inter, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">6. Intermediate Step: "Exploring database to find GC records..."</text>
+
+          <!-- Box: UI routes to Thinking Accordion -->
+          <rect x="50" y="305" width="160" height="28" rx="5" fill="#312e81" stroke="#818cf8"/>
+          <text x="130" y="323" fill="#e0e7ff" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Routed to ThinkingSection.jsx</text>
+
+          <!-- Step 7: Final Structured Answer with Tables/Charts -->
+          <line x1="815" y1="365" x2="475" y2="365" stroke="#10b981" stroke-width="2"/>
+          <line x1="470" y1="385" x2="135" y2="385" stroke="#10b981" stroke-width="2"/>
+          <text x="300" y="377" fill="#34d399" font-family="Inter, sans-serif" font-size="11" font-weight="700" text-anchor="middle">7. Final Activity: Structured Markdown Table & KPI Metrics</text>
+
+          <!-- Box: UI renders Markdown & Tables -->
+          <rect x="50" y="405" width="160" height="28" rx="5" fill="#064e3b" stroke="#34d399"/>
+          <text x="130" y="423" fill="#d1fae5" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Rendered via MarkdownRenderer</text>
+        </svg>
+      </div>
+
+      <div class="card-grid">
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-title">1. Secret Key Session Generation</span>
+            <div class="card-icon">🔑</div>
+          </div>
+          <p class="card-description">
+            The frontend connects to Direct Line using standard HTTP `fetch`:
+          </p>
+          <pre class="tech-code-snippet">POST https://directline.botframework.com/v3/directline/tokens/generate
+Headers: { "Authorization": "Bearer DIRECT_LINE_SECRET" }
+Response: { "token": "...", "conversationId": "...", "streamUrl": "..." }</pre>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-title">2. Context Passing via `channelData`</span>
+            <div class="card-icon">🧭</div>
+          </div>
+          <p class="card-description">
+            Passes portal route, selected Gathering Center (GC), and user role dynamically:
+          </p>
+          <pre class="tech-code-snippet">{
+  "type": "message",
+  "text": "What is our current alarm status?",
+  "channelData": {
+    "currentRoute": "/consoles/gc-3",
+    "activeConsole": "GC-03",
+    "userRole": "ConsoleOperator"
+  }
+}</pre>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-title">3. Intelligent Thinking Filter</span>
+            <div class="card-icon">🧠</div>
+          </div>
+          <p class="card-description">
+            Uses regex heuristics (`isIntermediateMessage()`) to intercept agent progress announcements ("Let me first explore the database...") and route them into collapsible accordions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: COPILOT STUDIO TOOLING & MCP SERVER BREAKTHROUGH -->
+    <section id="copilot-mcp" class="doc-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><span class="section-title-num">02</span> Copilot Studio Tooling & The MCP Server Integration</h2>
+          <div class="section-subtitle">Why connecting an MCP Server directly to Copilot Studio transforms safety, governance, and database querying</div>
+        </div>
+      </div>
+
+      <div class="callout callout-purple">
+        <div class="callout-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          Direct Evaluation of Your Question: "What if we create an MCP Server in our app?"
+        </div>
+        <strong>Verdict: This is the optimal architecture for ADNOC.</strong><br>
+        Currently, in Screenshot 1, Copilot Studio is connected to SQL Server using generic connectors: <em>"Get tables (V2)", "Get rows (V2)", "Execute a SQL query (V2)"</em>. Letting an LLM generate and execute raw SQL poses severe enterprise risks (accidental table drops, uncontrolled joins, performance degradation, and bypassing user-level permissions).<br><br>
+        By building an <strong>MCP (Model Context Protocol) Server</strong> inside your app backend (Node.js/Express or Python), you can expose <strong>governed, business-specific tools</strong> (e.g., `getAlarmMetrics(gc_id, timeframe)`), allowing Claude Sonnet in Copilot Studio to execute parameterized, validated queries with 100% security!
+      </div>
+
+      <!-- MCP Architecture Diagram -->
+      <div class="diagram-container">
+        <div class="diagram-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+          The Governed MCP Server Architectural Pipeline
+        </div>
+
+        <svg class="svg-diagram" viewBox="0 0 960 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- User / Portal -->
+          <rect x="30" y="140" width="160" height="90" rx="10" fill="#0056b3" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="110" y="175" fill="#ffffff" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">React 19 Frontend</text>
+          <text x="110" y="195" fill="#bae6fd" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">(ADNOC OASIS Portal)</text>
+          <text x="110" y="215" fill="#e0f2fe" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Direct Line Secret Key</text>
+
+          <!-- Arrow 1 -->
+          <line x1="190" y1="185" x2="270" y2="185" stroke="#38bdf8" stroke-width="2"/>
+          <text x="230" y="175" fill="#38bdf8" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">REST v3</text>
+
+          <!-- Copilot Studio -->
+          <rect x="270" y="110" width="220" height="150" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+          <text x="380" y="140" fill="#ffffff" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Microsoft Copilot Studio</text>
+          <rect x="285" y="155" width="190" height="30" rx="5" fill="#4c1d95"/>
+          <text x="380" y="174" fill="#ddd6fe" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Model: Claude Sonnet 4.6</text>
+          <text x="380" y="205" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10.5" text-anchor="middle">Knowledge: 5 ADNOC PDFs</text>
+          <text x="380" y="225" fill="#38bdf8" font-family="Inter, sans-serif" font-size="10.5" text-anchor="middle">System Prompt: 4 Alarm States</text>
+
+          <!-- Arrow 2 (MCP Protocol) -->
+          <line x1="490" y1="185" x2="570" y2="185" stroke="#ec4899" stroke-width="2.5"/>
+          <text x="530" y="170" fill="#f472b6" font-family="Inter, sans-serif" font-size="11" font-weight="700" text-anchor="middle">MCP Protocol</text>
+          <text x="530" y="200" fill="#94a3b8" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">JSON-RPC / SSE</text>
+
+          <!-- MCP Server Box (In Your Backend) -->
+          <rect x="570" y="110" width="200" height="150" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+          <text x="670" y="140" fill="#ffffff" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">App MCP Server</text>
+          <text x="670" y="160" fill="#f472b6" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">(server/server.js)</text>
+          <text x="670" y="185" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">• get_gc_alarm_stats()</text>
+          <text x="670" y="202" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">• get_oie_loops()</text>
+          <text x="670" y="220" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">• check_user_rbac()</text>
+
+          <!-- Arrow 3 (SQL) -->
+          <line x1="770" y1="185" x2="840" y2="185" stroke="#10b981" stroke-width="2"/>
+          <text x="805" y="175" fill="#34d399" font-family="Inter, sans-serif" font-size="10" font-weight="600" text-anchor="middle">SQL Query</text>
+
+          <!-- ADNOC Database -->
+          <rect x="840" y="140" width="100" height="90" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+          <text x="890" y="175" fill="#ffffff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle">MS SQL</text>
+          <text x="890" y="195" fill="#94a3b8" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Database</text>
+          <text x="890" y="215" fill="#34d399" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Protected</text>
+        </svg>
+      </div>
+
+      <div class="card-grid">
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-title">1. Eliminates Unsafe Raw SQL Execution</span>
+            <div class="card-icon">🛡️</div>
+          </div>
+          <p class="card-description">
+            In Screenshot 1, <code>Execute a SQL query (V2)</code> gives the bot direct query power. An MCP Server restricts the AI to predefined functions: the LLM passes structured arguments, and the server executes parameterized stored procedures.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-title">2. Enforces Scope-Based Permissions</span>
+            <div class="card-icon">🔐</div>
+          </div>
+          <p class="card-description">
+            Addresses <strong>Feature 16</strong> and <strong>Feature 19</strong>. When Copilot Studio invokes an MCP tool, the MCP server validates the user's active session token, ensuring operators cannot view data outside their assigned Gathering Center.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-title">3. Seamless Connection via Modal</span>
+            <div class="card-icon">🔌</div>
+          </div>
+          <p class="card-description">
+            In Screenshot 2, configure the <strong>Add MCP server</strong> modal:<br>
+            • <strong>Server URL:</strong> <code>https://adnoc-oasis.internal/api/mcp</code><br>
+            • <strong>Authentication:</strong> API Key or OAuth 2.0 (Entra ID).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE 64-FEATURE MATRIX -->
+    <section id="feature-matrix" class="doc-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><span class="section-title-num">03</span> Complete 64-Feature Specification & Feasibility Matrix</h2>
+          <div class="section-subtitle">Detailed evaluation of every feature in the 28 October 2026 brief against the Direct Line Secret & MCP architecture</div>
+        </div>
+      </div>
+
+      <!-- Interactive Filter Panel -->
+      <div class="filter-panel">
+        <div class="search-row">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="featureSearchInput" class="search-input" placeholder="Search 64 features by name, keyword, technical reason, or requirement...">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <!-- Discussion Status Filter -->
+          <div class="filter-group-row">
+            <span class="filter-label">Discussion Status:</span>
+            <button class="filter-pill active" data-filter-type="status" data-filter-val="all">All <span class="count">64</span></button>
+            <button class="filter-pill" data-filter-type="status" data-filter-val="Required">Required <span class="count">16</span></button>
+            <button class="filter-pill" data-filter-type="status" data-filter-val="Discussed">Discussed <span class="count">18</span></button>
+            <button class="filter-pill" data-filter-type="status" data-filter-val="Client confirmation">Client Confirmation <span class="count">19</span></button>
+            <button class="filter-pill" data-filter-type="status" data-filter-val="Architecture decision">Architecture Decision <span class="count">4</span></button>
+            <button class="filter-pill" data-filter-type="status" data-filter-val="Future enhancement">Future Enhancement <span class="count">3</span></button>
+            <button class="filter-pill" data-filter-type="status" data-filter-val="Other">Constraints / Scope <span class="count">4</span></button>
+          </div>
+
+          <!-- Feasibility Status Filter -->
+          <div class="filter-group-row" style="margin-top: 8px;">
+            <span class="filter-label">Feasibility:</span>
+            <button class="filter-pill active" data-filter-type="feasibility" data-filter-val="all">All <span class="count">64</span></button>
+            <button class="filter-pill" data-filter-type="feasibility" data-filter-val="Client-Side">Feasible (Client-Side) <span class="count">15</span></button>
+            <button class="filter-pill" data-filter-type="feasibility" data-filter-val="Copilot Studio">Feasible (Copilot Studio) <span class="count">19</span></button>
+            <button class="filter-pill" data-filter-type="feasibility" data-filter-val="Backend">Feasible (Backend / MCP) <span class="count">24</span></button>
+            <button class="filter-pill" data-filter-type="feasibility" data-filter-val="Conflict">Architectural Note <span class="count">6</span></button>
+          </div>
+        </div>
+
+        <div class="filter-status-info">
+          <span id="resultsCounter">Showing 64 of 64 features</span>
+          <button class="reset-filters-btn" id="resetFiltersBtn">Reset All Filters</button>
+        </div>
+      </div>
+
+      <!-- The Big Table -->
+      <div class="table-container">
+        <table class="spec-table" id="featuresTable">
+          <thead>
+            <tr>
+              <th style="width: 45px;">#</th>
+              <th style="width: 180px;">Feature Name</th>
+              <th style="width: 220px;">Short Explanation</th>
+              <th style="width: 140px;">Discussion Status</th>
+              <th style="width: 170px;">Implementation Feasibility</th>
+              <th style="width: 280px;">Technical Reason</th>
+              <th style="width: 320px;">Implementation Requirements (No MS SDK)</th>
+            </tr>
+          </thead>
+          <tbody id="featuresTableBody">
+            <!-- Features 1 to 64 injected here dynamically with zero loss of detail -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: SECURITY, RBAC & ENTERPRISE COMPLIANCE -->
+    <section id="security-auth" class="doc-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><span class="section-title-num">04</span> Authentication, Entra ID SSO & SQL Governance</h2>
+          <div class="section-subtitle">How security is enforced across React, Direct Line, and the backend MCP Server</div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-title">Silent Entra ID SSO Handshake</span>
+            <div class="card-icon">🛡️</div>
+          </div>
+          <p class="card-description">
+            Without Microsoft WebChat SDK, your React application resolves OAuth challenge cards automatically:
+          </p>
+          <pre class="tech-code-snippet">// In copilotService.js: Silent Token Exchange Handshake
+if (activity.attachments?.[0]?.contentType === 'application/vnd.microsoft.card.oauth') {
+  const sasUrl = activity.attachments[0].content.tokenPostResource?.sasUrl;
+  if (sasUrl && window.msalInstance) {
+    const res = await window.msalInstance.acquireTokenSilent({
+      scopes: ['api://adnoc-copilot/access_as_user']
+    });
+    // POST token directly to Bot Framework SAS URL
+    await fetch(sasUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: res.accessToken })
+    });
+  }
+}</pre>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-header">
+            <span class="card-title">Dual-Mode Security: Metadata vs Live Data</span>
+            <div class="card-icon">🔒</div>
+          </div>
+          <p class="card-description">
+            Addresses <strong>Feature 18</strong> and <strong>Feature 20</strong>:<br>
+            • <strong>Phase 1 (Metadata-Only):</strong> Copilot Studio is grounded exclusively on uploaded PDF manuals, data dictionaries, and schema definitions. No actual production operational records are shared with the LLM.<br>
+            • <strong>Phase 2 (Live Business Telemetry):</strong> Enabled via MCP tools with parameterized filters once ADNOC Information Security formally approves data-sharing consent.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: STRATEGIC CLIENT RECOMMENDATIONS -->
+    <section id="client-recommendations" class="doc-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title"><span class="section-title-num">05</span> Executive Recommendations for Sumit & Client Discussions</h2>
+          <div class="section-subtitle">Key discussion points and architectural alignments for the upcoming ADNOC technical workshop</div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="feature-card" style="border-left: 4px solid #10b981;">
+          <div class="card-header">
+            <span class="card-title">1. What is 100% Ready Today</span>
+            <div class="card-icon" style="color: #10b981;">✅</div>
+          </div>
+          <p class="card-description">
+            • Full conversational UI (Features 1–5) embedded directly via Direct Line Secret.<br>
+            • Dynamic tables and markdown formatting (Feature 9).<br>
+            • Client-side report generation & export (Feature 12).<br>
+            • Thinking/Reasoning transparency accordion.<br>
+            • Knowledge base grounding on 5 ADNOC KPI documents (Features 23–30).
+          </p>
+        </div>
+
+        <div class="feature-card" style="border-left: 4px solid #f59e0b;">
+          <div class="card-header">
+            <span class="card-title">2. Decisions Required from ADNOC</span>
+            <div class="card-icon" style="color: #f59e0b;">⚠️</div>
+          </div>
+          <p class="card-description">
+            • <strong>Data Sharing Consent (Feature 20):</strong> Confirm approval to feed live alarm records to the Copilot Studio Claude Sonnet 4.6 model.<br>
+            • <strong>SQL Query Method (Feature 22):</strong> Confirm transition from raw SQL connectors (`Execute a SQL query V2`) to the safer <strong>MCP Server pattern</strong>.<br>
+            • <strong>Scope Permissions (Feature 16):</strong> Confirm the schema of the MS SQL user permissions table.
+          </p>
+        </div>
+
+        <div class="feature-card" style="border-left: 4px solid #8b5cf6;">
+          <div class="card-header">
+            <span class="card-title">3. Model Governance & Billing</span>
+            <div class="card-icon" style="color: #8b5cf6;">💡</div>
+          </div>
+          <p class="card-description">
+            • Clarify to the client that Copilot Studio operates on <strong>Message/Session Capacity Billing</strong>, not raw token metering.<br>
+            • Features 37 & 46 (Token Limits & Dashboards) should be tracked as <strong>Engaged Session Volumes</strong> in Power Platform Admin Center rather than raw prompt token counts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="doc-footer">
+      <div>ADNOC OASIS Operational Integrity System — AI Copilot Architectural Specification</div>
+      <div style="margin-top: 6px;">Developed by Nikhil & Sumit | Techknomatic Engineering Team | November 2026</div>
+    </footer>
+
+  </div>
+
+  <!-- EMBEDDED COMPLETE DATASET: ALL 64 FEATURES -->
+  <script>
+    const FEATURES_DATA = [
+      {
+        id: 1,
+        category: "User-facing chatbot features",
+        name: "AI Chat Interface",
+        desc: "Chatbot integrated into the existing ADNOC React portal, allowing users to ask questions in natural language.",
+        status: "Required",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Already fully implemented in your React 19 codebase (OasisChatWidget.jsx, copilotService.js). Operates over standard Direct Line REST calls without any Microsoft WebChat SDK.",
+        req: "Send user prompt via HTTP POST to /v3/directline/conversations/{convId}/activities with { type: 'message', text: prompt }. Poll activities via watermark."
+      },
+      {
+        id: 2,
+        category: "User-facing chatbot features",
+        name: "Context-Aware Chatbot",
+        desc: "Chatbot automatically understands which portal page the user is currently viewing, such as Homepage or Console page.",
+        status: "Required",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "The React widget has direct access to window.location.pathname and React Router state.",
+        req: "Inject active route into channelData on every outbound activity: { channelData: { currentRoute: window.location.pathname, activeConsole: activeConsoleId } }."
+      },
+      {
+        id: 3,
+        category: "User-facing chatbot features",
+        name: "Page Context Integration",
+        desc: "Pass relevant page information, metadata and context to the AI so that it can answer questions about the current screen.",
+        status: "Required",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Direct Line REST natively supports custom activity payloads and Event activities without an SDK.",
+        req: "Dispatch an Event activity whenever screen metadata changes: { type: 'event', name: 'pageContextUpdated', value: { gc: 'GC-01', kpi: 'Alarms' } }. In Copilot Studio, read via System.Activity.ChannelData or Event Topic."
+      },
+      {
+        id: 4,
+        category: "User-facing chatbot features",
+        name: "Contextual Follow-up Questions",
+        desc: "Users can ask additional questions based on previous conversations without repeating the original question.",
+        status: "Required",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio natively manages multi-turn conversational state per conversationId.",
+        req: "Preserve the same Direct Line conversationId in copilotService.js across the user session. Claude Sonnet in Copilot Studio resolves pronouns against prior turns automatically."
+      },
+      {
+        id: 5,
+        category: "User-facing chatbot features",
+        name: "Conversation Context Compression",
+        desc: "Manage conversation history and compress older context to support longer conversations within model context limits.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio automatically manages context window truncation. On the client side, React optimizes DOM rendering.",
+        req: "Implement DOM windowing in React to render only the last 30 turns in the viewport, while Copilot Studio's session orchestrator compresses older turns under the hood."
+      },
+      {
+        id: 6,
+        category: "User-facing chatbot features",
+        name: "KPI Explanation",
+        desc: "Users can ask how a particular KPI, such as Operational Integrity Envelope, is calculated or derived.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "This is a metadata/knowledge task. Your Copilot Studio instance already has 5 ADNOC KPI PDFs attached (e.g. ADNOC_OIE_Healthy_Loops_KPI_and_SQL.pdf).",
+        req: "The Generative Answers node in Copilot Studio retrieves formulas directly from the attached knowledge PDFs without querying live production databases."
+      },
+      {
+        id: 7,
+        category: "User-facing chatbot features",
+        name: "Performance Analysis",
+        desc: "Users can ask why a KPI has decreased, where performance losses occurred or why an alarm performance metric is below target.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Requires querying live historical/telemetry alarm records in MS SQL and applying the 4 performance state rules visible in your Copilot Studio prompt.",
+        req: "Connect via the proposed MCP Server or SQL Server connector to fetch alarm rates for the requested GC; Claude Sonnet evaluates against State 1-4 thresholds."
+      },
+      {
+        id: 8,
+        category: "User-facing chatbot features",
+        name: "Business Recommendations",
+        desc: "Chatbot analyses available operational information and provides possible explanations or recommendations for performance deviations.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Synthesizes operational state data with ADNOC Standard Operating Procedures (SOPs).",
+        req: "Claude Sonnet in Copilot Studio uses prompt rules (e.g. 'flag worst-performing metric state') and SOP knowledge documents to output actionable recommendations."
+      },
+      {
+        id: 9,
+        category: "User-facing chatbot features",
+        name: "Dynamic Tables",
+        desc: "AI-generated responses can include structured tables to present relevant information.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Direct Line outputs standard Markdown table syntax (| Col 1 | Col 2 |).",
+        req: "MarkdownRenderer.jsx (already using marked.js) parses markdown tables and styles them with ADNOC CSS classes and zebra striping."
+      },
+      {
+        id: 10,
+        category: "User-facing chatbot features",
+        name: "Dynamic Charts and Graphs",
+        desc: "AI can generate graphical representations such as bar charts, pie charts and trend visualisations based on supported data.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Frontend can intercept structured JSON chart specifications embedded in assistant responses.",
+        req: "Instruct Copilot Studio to output chart data in code fences (```chart:bar { labels: [...], datasets: [...] } ```). OasisChatWidget detects this block and renders Chart.js or Recharts."
+      },
+      {
+        id: 11,
+        category: "User-facing chatbot features",
+        name: "Structured AI Responses",
+        desc: "AI must return responses in a predefined JSON structure so the React frontend can render tables, charts and other supported elements consistently.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio Topic nodes can return strict JSON schemas inside activity.text or activity.channelData.",
+        req: "Set response format in Copilot Studio Topic prompts: 'Return output strictly formatted as JSON schema { type, text, payload }'. React client parses JSON on arrival."
+      },
+      {
+        id: 12,
+        category: "User-facing chatbot features",
+        name: "Report / Download",
+        desc: "Allow users to export or download chatbot-generated results. The exact report format and export options need clarification.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Purely client-side execution; no Microsoft SDK or backend dependency.",
+        req: "Add an 'Export' button to assistant message cards in OasisChatWidget.jsx. Export message table/text to CSV or PDF using client libraries (jspdf, xlsx)."
+      },
+      {
+        id: 13,
+        category: "Authentication and security features",
+        name: "Microsoft Entra ID Authentication",
+        desc: "Authenticate users using their existing organisational identity and access token.",
+        status: "Required",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Supported via Direct Line REST token exchange handshake without Microsoft WebChat SDK.",
+        req: "React acquires token via MSAL.js; when Copilot Studio returns an OAuth Card (application/vnd.microsoft.card.oauth), frontend POSTs the user token to content.tokenPostResource.sasUrl."
+      },
+      {
+        id: 14,
+        category: "Authentication and security features",
+        name: "Active Directory Group Integration",
+        desc: "Retrieve relevant user group membership from the existing Active Directory configuration.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Group claims are present in the Entra ID token or queryable via Microsoft Graph API.",
+        req: "Extract groups from user's JWT in the portal and forward via channelData.groups, or let Copilot Studio query Graph API using the delegated user token."
+      },
+      {
+        id: 15,
+        category: "Authentication and security features",
+        name: "Role-Based Access Control (RBAC)",
+        desc: "Restrict chatbot functionality and data access according to the user's assigned roles.",
+        status: "Required",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio condition nodes can branch conversational logic based on variables.",
+        req: "Pass userRole via channelData. In Copilot Studio, define condition branches: if user is not in 'IntegrityManager', block access to sensitive topics."
+      },
+      {
+        id: 16,
+        category: "Authentication and security features",
+        name: "Scope-Based Permissions",
+        desc: "Retrieve user scopes and permissions from the existing MS SQL database and enforce them during chatbot requests.",
+        status: "Required",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Copilot Studio cannot securely inspect custom MS SQL permission tables on-premise without a backend gateway.",
+        req: "The proposed MCP Server receives the user session, queries the MS SQL permissions table, and filters available tools/data to authorized scopes only."
+      },
+      {
+        id: 17,
+        category: "Authentication and security features",
+        name: "Secure API Authentication",
+        desc: "Validate user tokens through the application API before allowing chatbot operations.",
+        status: "Required",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Direct Line Secret Key must not be visible in raw browser source in production.",
+        req: "The lightweight Express backend (server/server.js) validates the user's Bearer token first, then generates and dispenses the Direct Line conversation token."
+      },
+      {
+        id: 18,
+        category: "Authentication and security features",
+        name: "Metadata-Only AI Context",
+        desc: "Initially, AI receives table names, column names and relevant metadata rather than actual business records.",
+        status: "Required",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Controlled by knowledge attachments. As shown in your screenshot, 5 KPI reference PDFs are attached without live operational tables.",
+        req: "Ground Copilot Studio only on uploaded PDF data dictionaries and schema definitions. Keep database connectors disabled until Phase 2."
+      },
+      {
+        id: 19,
+        category: "Authentication and security features",
+        name: "Restricted Data Access",
+        desc: "AI must not bypass existing user permissions or access information outside the user's authorised scope.",
+        status: "Required",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Enforced at the API and MCP Server level, not by trusting LLM prompt instructions alone.",
+        req: "All data-retrieval MCP tools filter queries by the authenticated user's authorized Gathering Centers and consoles."
+      },
+      {
+        id: 20,
+        category: "Authentication and security features",
+        name: "AI Data-Sharing Consent",
+        desc: "Obtain ADNOC's approval before sending actual operational or business data to an external or hosted AI model.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio runs within ADNOC's Microsoft Azure enterprise tenant boundary. Data is not used to train public foundation models.",
+        req: "Provide ADNOC Information Security with Microsoft's Azure OpenAI & Copilot Studio tenant isolation documentation for formal sign-off."
+      },
+      {
+        id: 21,
+        category: "Authentication and security features",
+        name: "Prompt Guardrails",
+        desc: "Restrict chatbot usage to approved business-related questions and reject irrelevant queries.",
+        status: "Required",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Native feature of Copilot Studio Content Safety and System Instructions.",
+        req: "Visible in your screenshot: system instructions define 'You are the Alarm Performance Analyst Copilot... You do not generate, guess, or extrapolate data.' Fallback topic rejects out-of-scope prompts."
+      },
+      {
+        id: 22,
+        category: "Authentication and security features",
+        name: "Restricted SQL Execution",
+        desc: "Any future SQL-generation capability must be constrained by permissions and approved query policies.",
+        status: "Architecture decision",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Raw SQL execution (e.g. Execute a SQL query V2) is dangerous. An MCP Server restricts queries to safe, pre-approved stored procedures.",
+        req: "Deprecate the raw SQL query connector in Copilot Studio; route all queries through MCP Server tools that call parameterized stored procedures."
+      },
+      {
+        id: 23,
+        category: "Knowledge base and AI intelligence features",
+        name: "Vector Database",
+        desc: "Maintain a vector database for storing and retrieving relevant knowledge for AI responses.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio connects natively to Azure AI Search with vector search capability.",
+        req: "Configure an Azure AI Search vector index in ADNOC's Azure tenant and attach it as a Generative Knowledge source in Copilot Studio."
+      },
+      {
+        id: 24,
+        category: "Knowledge base and AI intelligence features",
+        name: "Business Terminology Knowledge Base",
+        desc: "Store descriptions of ADNOC-specific terminology, GC names, console names and other organisational terms.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Already partially done in your tenant via attached PDF files.",
+        req: "Upload an ADNOC acronym glossary and console mapping document into Copilot Studio Knowledge for instant grounding."
+      },
+      {
+        id: 25,
+        category: "Knowledge base and AI intelligence features",
+        name: "Database Schema Knowledge",
+        desc: "Provide AI with database table names, column names and relationships to help it understand the existing database structure.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Documented in attached PDF: sql_kpi_Excursion_metrics_madb_kpi_Deviation...",
+        req: "Maintain schema documentation in Copilot Studio Knowledge so Claude Sonnet understands table structures and column names."
+      },
+      {
+        id: 26,
+        category: "Knowledge base and AI intelligence features",
+        name: "Column Metadata Management",
+        desc: "Maintain column descriptions, data types and properties.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Managed via data dictionary documents in Knowledge.",
+        req: "Store data dictionary tables in SharePoint or Azure Blob Storage linked to Copilot Studio Knowledge."
+      },
+      {
+        id: 27,
+        category: "Knowledge base and AI intelligence features",
+        name: "Named Column Identification",
+        desc: "Identify important business-related columns such as first name, last name, GC names and console names.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Configured via Copilot Studio Custom Entities with synonyms.",
+        req: "Create a 'GatheringCenter' entity with synonyms ('GC1', 'GC-01', 'Gathering Center 1'). The bot recognizes them in user queries and maps to canonical IDs."
+      },
+      {
+        id: 28,
+        category: "Knowledge base and AI intelligence features",
+        name: "API Documentation Knowledge Base",
+        desc: "Store API documentation and descriptions so AI understands available endpoints and their functionality.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Power Platform natively imports Swagger/OpenAPI v3 JSON definitions.",
+        req: "Import ADNOC's Swagger JSON file as a Copilot Studio Plugin/Action. Claude Sonnet reads endpoint summaries to trigger appropriate APIs."
+      },
+      {
+        id: 29,
+        category: "Knowledge base and AI intelligence features",
+        name: "Database Relationship Understanding",
+        desc: "Help AI understand how tables, columns and database entities are connected.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "ER diagrams and foreign key maps uploaded to Knowledge.",
+        req: "Include an Entity Relationship description document in Copilot Studio Knowledge explaining how tables join (e.g. GC_Master to Alarm_History)."
+      },
+      {
+        id: 30,
+        category: "Knowledge base and AI intelligence features",
+        name: "KPI Calculation Knowledge",
+        desc: "Store information about how operational KPIs are calculated, including their formulas and derivation logic.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Already uploaded in your tenant (ADNOC_MADB_KPI_and_SQL.pdf, ADNOC_SIS_PSA_Health_KPI_and_SQL.pdf).",
+        req: "Claude Sonnet reads the formula definitions directly from these PDFs to explain calculation logic to operators."
+      },
+      {
+        id: 31,
+        category: "Knowledge base and AI intelligence features",
+        name: "Knowledge Base Maintenance",
+        desc: "Update the knowledge base and relevant metadata when database structures, APIs or business terminology change.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Automated sync via SharePoint or Azure AI Search indexers.",
+        req: "Link Copilot Studio Knowledge to an ADNOC SharePoint library or Azure Blob container; updates re-index automatically without republishing."
+      },
+      {
+        id: 32,
+        category: "Knowledge base and AI intelligence features",
+        name: "Knowledge-Based Query Generation",
+        desc: "Use schema and API knowledge to help the AI construct appropriate queries when authorised.",
+        status: "Architecture decision",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Best implemented via MCP tools rather than uncontrolled text-to-SQL.",
+        req: "The AI selects the relevant MCP tool (e.g. get_kpi_deviation) and passes arguments extracted from user intent. The MCP server constructs the SQL query safely."
+      },
+      {
+        id: 33,
+        category: "AI model management and integration",
+        name: "Configurable AI Model",
+        desc: "Allow the solution to use a client-approved AI model rather than hardcoding one provider.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Your screenshot proves this is ALREADY ACTIVE: Model selector is set to Claude Sonnet 4.6 in your Copilot Studio tenant!",
+        req: "Tenant administrators can toggle between Azure OpenAI (GPT-4o) and Anthropic Claude Sonnet 4.6 directly within Copilot Studio settings."
+      },
+      {
+        id: 34,
+        category: "AI model management and integration",
+        name: "Multiple AI Model Support",
+        desc: "Evaluate support for OpenAI, Anthropic and other approved model providers.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio has added native support for Anthropic Claude Sonnet in addition to OpenAI GPT-4o.",
+        req: "Manage model selection at the Copilot Studio agent level as shown in the screenshot."
+      },
+      {
+        id: 35,
+        category: "AI model management and integration",
+        name: "Azure AI Foundry Integration",
+        desc: "Evaluate whether the chatbot should connect directly to Azure AI Foundry or another supported model-management approach.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Copilot Studio can invoke Azure AI Foundry custom model deployments via REST Actions/Plugins.",
+        req: "Deploy custom fine-tuned models in Azure AI Foundry and expose as REST endpoints; register as Copilot Studio Actions."
+      },
+      {
+        id: 36,
+        category: "AI model management and integration",
+        name: "Model Selection Configuration",
+        desc: "Allow the client to choose which AI models should be exposed to chatbot users.",
+        status: "Client confirmation",
+        feasibility: "ARCHITECTURAL CONFLICT / NOTE",
+        feasibilityType: "Conflict",
+        reason: "Model selection is an administrative setting in Copilot Studio; end-users cannot switch models dynamically turn-by-turn over Direct Line REST.",
+        req: "Client admins select the approved model (e.g. Claude Sonnet) in Copilot Studio. Dynamic user switching is not supported by Copilot Studio SaaS."
+      },
+      {
+        id: 37,
+        category: "AI model management and integration",
+        name: "Token Limit Management",
+        desc: "Configure and manage token consumption limits for selected AI models.",
+        status: "Client confirmation",
+        feasibility: "ARCHITECTURAL CONFLICT / NOTE",
+        feasibilityType: "Conflict",
+        reason: "Copilot Studio operates on a Message/Session Capacity model, not raw token consumption metering.",
+        req: "Manage capacity quotas via Microsoft Power Platform Admin Center message licenses rather than raw prompt token limits."
+      },
+      {
+        id: 38,
+        category: "AI model management and integration",
+        name: "Context Window Management",
+        desc: "Understand and manage each model's maximum context capacity and remaining context.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG (AUTO)",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio automatically manages context window allocation and turn truncation.",
+        req: "Managed internally by Copilot Studio's multi-turn conversational orchestrator."
+      },
+      {
+        id: 39,
+        category: "AI model management and integration",
+        name: "Model Usage Monitoring",
+        desc: "Monitor token consumption and model usage where supported by the selected provider.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Tracked in Power Platform Admin Center as sessions, messages, and deflection rate.",
+        req: "Use Copilot Studio built-in Analytics and Power Platform Admin Center dashboards."
+      },
+      {
+        id: 40,
+        category: "AI model management and integration",
+        name: "Model Gateway",
+        desc: "Consider a central gateway to manage multiple AI providers, model selection and usage policies.",
+        status: "Architecture decision",
+        feasibility: "ARCHITECTURAL CONFLICT / NOTE",
+        feasibilityType: "Conflict",
+        reason: "Copilot Studio IS the managed gateway. Adding a 3rd-party LLM gateway replaces Copilot Studio entirely.",
+        req: "Present to ADNOC: Copilot Studio provides an all-in-one managed gateway with Claude and OpenAI support out of the box."
+      },
+      {
+        id: 41,
+        category: "Admin portal and monitoring features",
+        name: "Admin Dashboard",
+        desc: "Centralised administrative interface to monitor chatbot operations.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Power Platform Admin Center provides full centralized monitoring.",
+        req: "Grant ADNOC operators access to Copilot Studio Analytics (sessions, engagement rate, resolution rate, CSAT)."
+      },
+      {
+        id: 42,
+        category: "Admin portal and monitoring features",
+        name: "Conversation History",
+        desc: "Allow authorised administrators to inspect previous chatbot conversations.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Direct Line does not provide a cross-user transcript query endpoint for security reasons.",
+        req: "Enable Copilot Studio transcript logging to Microsoft Dataverse (ConversationTranscript entity) or log messages in the backend MCP/token server."
+      },
+      {
+        id: 43,
+        category: "Admin portal and monitoring features",
+        name: "Prompt and Response Logging",
+        desc: "Maintain logs of user prompts and corresponding AI responses.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Easily intercepted in the backend proxy or logged to Azure Application Insights.",
+        req: "The backend server intercepts prompts and responses, logging timestamp, user ID, prompt, and output to an Azure SQL audit table."
+      },
+      {
+        id: 44,
+        category: "Admin portal and monitoring features",
+        name: "Chatbot Performance Monitoring",
+        desc: "Review how the chatbot is responding and identify potential performance or response-quality issues.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Frontend measures round-trip latency directly between POST and response delivery.",
+        req: "Calculate response elapsed time in copilotService.js and transmit latency telemetry to Azure Application Insights."
+      },
+      {
+        id: 45,
+        category: "Admin portal and monitoring features",
+        name: "Active User Monitoring",
+        desc: "Display how many users are currently accessing the chatbot.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Direct Line does not expose live concurrent user counts over client REST.",
+        req: "Track active session heartbeats in Redis or an in-memory map in server/server.js and expose an endpoint /api/admin/active-users."
+      },
+      {
+        id: 46,
+        category: "Admin portal and monitoring features",
+        name: "Token Consumption Dashboard",
+        desc: "Display token usage and consumption by model, user or other agreed grouping.",
+        status: "Client confirmation",
+        feasibility: "ARCHITECTURAL CONFLICT / NOTE",
+        feasibilityType: "Conflict",
+        reason: "Copilot Studio does not export raw token counts to Direct Line clients.",
+        req: "Track and display Message and Session consumption instead, which is natively supported in Power Platform Admin Center."
+      },
+      {
+        id: 47,
+        category: "Admin portal and monitoring features",
+        name: "Model Usage Statistics",
+        desc: "Monitor model usage, context limits and remaining capacity where provider information is available.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Copilot Studio Analytics provides topic triggering frequency and session resolution rates.",
+        req: "View built-in Copilot Studio Analytics reports in the admin portal."
+      },
+      {
+        id: 48,
+        category: "Admin portal and monitoring features",
+        name: "Model Limits Administration",
+        desc: "Manage token and usage restrictions if the selected model provider allows application-level controls.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Per-user query rate limits must be enforced in the application backend layer.",
+        req: "Implement rate-limiting middleware in server/server.js (e.g. max 40 queries/hour per Entra ID user)."
+      },
+      {
+        id: 49,
+        category: "Real-time communication and system performance",
+        name: "Real-Time Communication",
+        desc: "Establish a real-time communication channel between the React frontend and backend chatbot services.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Direct Line v3 supports both low-latency polling and native WebSockets.",
+        req: "Currently using optimized 800ms watermark polling; can connect directly to Direct Line's streamUrl via native browser WebSocket without any SDK."
+      },
+      {
+        id: 50,
+        category: "Real-time communication and system performance",
+        name: "SignalR / WebSocket Integration",
+        desc: "Evaluate SignalR versus WebSocket for real-time communication. Final technology is not selected.",
+        status: "Architecture decision",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Direct Line already provides a native WebSocket streamUrl upon conversation start.",
+        req: "Recommend Direct Line native WebSockets directly from the browser; no need to introduce Azure SignalR unless an intermediate backend proxy is desired."
+      },
+      {
+        id: 51,
+        category: "Real-time communication and system performance",
+        name: "Isolated Communication Layer",
+        desc: "Keep the chatbot's real-time communication infrastructure isolated from other application functionality.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Already decoupled in copilotService.js.",
+        req: "Chatbot network traffic runs on independent Direct Line connections, isolated from main OASIS dashboard REST calls."
+      },
+      {
+        id: 52,
+        category: "Real-time communication and system performance",
+        name: "Concurrent User Handling",
+        desc: "Evaluate how many simultaneous users can access the chatbot and size the infrastructure accordingly.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - COPILOT STUDIO CONFIG",
+        feasibilityType: "Copilot Studio",
+        reason: "Direct Line and Copilot Studio are hosted on Azure hyperscale cloud infrastructure.",
+        req: "Azure Direct Line auto-scales to thousands of concurrent users. Ensure on-prem SQL MCP Server is sized for concurrent queries."
+      },
+      {
+        id: 53,
+        category: "Real-time communication and system performance",
+        name: "React Frontend Optimisation",
+        desc: "Ensure the chatbot does not freeze or slow down the existing portal, which already contains many UI elements.",
+        status: "Required",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "React 19 concurrent features and CSS containment prevent cross-component repainting.",
+        req: "Chat state is isolated inside OasisChatWidget.jsx with CSS contain: content, preventing re-renders in the parent MainWebsite dashboard."
+      },
+      {
+        id: 54,
+        category: "Real-time communication and system performance",
+        name: "Chat History Optimisation",
+        desc: "Prevent long conversations and excessive rendered elements from affecting browser performance.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Frontend memory management and thinking step aggregation keep DOM trees lean.",
+        req: "ThinkingSection.jsx groups intermediate thoughts into collapsible blocks; windowing limits active DOM elements."
+      },
+      {
+        id: 55,
+        category: "Azure, infrastructure and development standards",
+        name: "Azure Gulf Region Compatibility",
+        desc: "Verify availability of required Azure services in the ADNOC-targeted Gulf data-centre region.",
+        status: "Required research",
+        feasibility: "FEASIBLE - VERIFIED",
+        feasibilityType: "Copilot Studio",
+        reason: "Microsoft Power Platform, Azure Bot Services, and Azure OpenAI are officially available in UAE North (Dubai) and UAE Central (Abu Dhabi).",
+        req: "Provision tenant resources strictly within the UAE North datacenter boundary for data residency compliance."
+      },
+      {
+        id: 56,
+        category: "Azure, infrastructure and development standards",
+        name: "Regional Service Availability",
+        desc: "Verify AI models, Azure AI Foundry, networking and related services in the intended deployment region.",
+        status: "Required research",
+        feasibility: "FEASIBLE - VERIFIED",
+        feasibilityType: "Copilot Studio",
+        reason: "Azure AI Search and Copilot Studio are fully operational in UAE North.",
+        req: "Deploy Azure AI Search knowledge index inside UAE North region."
+      },
+      {
+        id: 57,
+        category: "Azure, infrastructure and development standards",
+        name: "Official Python Libraries",
+        desc: "Prefer official Microsoft/Azure-supported Python SDKs and libraries.",
+        status: "Required constraint",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "If implementing backend middleware or Python MCP Server, use official Microsoft SDKs.",
+        req: "Use azure-identity, azure-core, and mcp Python SDKs in the backend service."
+      },
+      {
+        id: 58,
+        category: "Azure, infrastructure and development standards",
+        name: "Third-Party Dependency Control",
+        desc: "Use third-party libraries only when official alternatives are unavailable, with code validation and compatibility checks.",
+        status: "Required constraint",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Your frontend codebase uses zero unapproved third-party dependencies.",
+        req: "Relies exclusively on native browser standards (fetch, WebSocket, localStorage) and marked.js for markdown."
+      },
+      {
+        id: 59,
+        category: "Azure, infrastructure and development standards",
+        name: "Scalable Backend Architecture",
+        desc: "Design the backend and real-time services to support the expected concurrent user load.",
+        status: "Discussed",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Stateless backend design allows horizontal auto-scaling.",
+        req: "Deploy the Node.js/Python MCP backend to Azure Container Apps or Azure App Service with auto-scaling (1 to 10 instances)."
+      },
+      {
+        id: 60,
+        category: "Azure, infrastructure and development standards",
+        name: "Backend API Integration",
+        desc: "Integrate with existing application APIs, database metadata and authentication services.",
+        status: "Required",
+        feasibility: "FEASIBLE - REQUIRES BACKEND / MCP",
+        feasibilityType: "Backend",
+        reason: "Can be connected via Power Platform On-Premises Data Gateway or direct MCP Server peering.",
+        req: "Deploy an On-Premises Data Gateway or establish Azure VNet peering to ADNOC's internal SQL network."
+      },
+      {
+        id: 61,
+        category: "Future enhancements and separate change requests",
+        name: "Real-Time Operational Dashboards",
+        desc: "Existing dashboard metrics automatically update when new operational data arrives.",
+        status: "Future enhancement",
+        feasibility: "ARCHITECTURAL CONFLICT / NOTE",
+        feasibilityType: "Conflict",
+        reason: "This is a core portal dashboard feature, not a chatbot conversational feature.",
+        req: "Implement an independent Azure Event Hub / WebSocket pipeline for the dashboard; decoupled from the chatbot."
+      },
+      {
+        id: 62,
+        category: "Future enhancements and separate change requests",
+        name: "Real-Time Console Alerts",
+        desc: "Console screens visually react when a new alert or alarm arrives.",
+        status: "Future enhancement",
+        feasibility: "ARCHITECTURAL CONFLICT / NOTE",
+        feasibilityType: "Conflict",
+        reason: "Belongs to the ADNOC SCADA/alarm telemetry frontend stream.",
+        req: "Portal alert pipeline; chatbot can receive an alert event to prompt the operator if desired."
+      },
+      {
+        id: 63,
+        category: "Future enhancements and separate change requests",
+        name: "Sound Notifications",
+        desc: "Play an audible notification when an operational alert occurs.",
+        status: "Client confirmation",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT",
+        feasibilityType: "Client-Side",
+        reason: "Pure frontend HTML5 Web Audio execution.",
+        req: "When a Direct Line activity arrives with channelData.priority === 'high' or triggers an alert state, trigger new Audio('/sounds/alarm-ping.mp3').play()."
+      },
+      {
+        id: 64,
+        category: "Future enhancements and separate change requests",
+        name: "Voice-Based Chatbot",
+        desc: "Voice input and output for interacting with the chatbot. The meeting explicitly excluded voice from the current scope.",
+        status: "Not initial scope",
+        feasibility: "FEASIBLE - CLIENT-SIDE DIRECT (FUTURE)",
+        feasibilityType: "Client-Side",
+        reason: "Excluded from initial delivery scope, but straightforward to add later.",
+        req: "Integrate native browser SpeechRecognition API or Azure AI Speech SDK for Speech-to-Text and Text-to-Speech without modifying the Direct Line backend."
+      }
+    ];
+
+    // Status Badge Mapper
+    function getStatusBadge(status) {
+      const s = status.toLowerCase();
+      if (s.includes('required')) return `<span class="badge status-required">Required</span>`;
+      if (s.includes('discussed')) return `<span class="badge status-discussed">Discussed</span>`;
+      if (s.includes('client confirmation')) return `<span class="badge status-client-confirmation">Client Confirmation</span>`;
+      if (s.includes('architecture decision')) return `<span class="badge status-architecture-decision">Architecture Decision</span>`;
+      if (s.includes('future enhancement')) return `<span class="badge status-future-enhancement">Future Enhancement</span>`;
+      if (s.includes('constraint')) return `<span class="badge status-constraint">${status}</span>`;
+      return `<span class="badge status-not-initial">${status}</span>`;
+    }
+
+    // Feasibility Badge Mapper
+    function getFeasibilityBadge(feasibility, type) {
+      if (type === 'Client-Side') return `<span class="badge feasibility-client">${feasibility}</span>`;
+      if (type === 'Copilot Studio') return `<span class="badge feasibility-copilot">${feasibility}</span>`;
+      if (type === 'Backend') return `<span class="badge feasibility-backend">${feasibility}</span>`;
+      return `<span class="badge feasibility-conflict">${feasibility}</span>`;
+    }
+
+    // Render Table
+    function renderFeatures(features) {
+      const tbody = document.getElementById('featuresTableBody');
+      tbody.innerHTML = '';
+
+      if (features.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 40px; color: var(--text-muted);">No matching features found. Try adjusting your search query or filters.</td></tr>`;
+        document.getElementById('resultsCounter').innerText = 'Showing 0 of 64 features';
+        return;
+      }
+
+      features.forEach(f => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="col-id">${f.id}</td>
+          <td class="col-name">${f.name}</td>
+          <td class="col-desc">${f.desc}</td>
+          <td class="col-status">${getStatusBadge(f.status)}</td>
+          <td class="col-feasibility">${getFeasibilityBadge(f.feasibility, f.feasibilityType)}</td>
+          <td class="col-reason">${f.reason}</td>
+          <td class="col-req">${f.req}</td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      document.getElementById('resultsCounter').innerText = `Showing ${features.length} of ${FEATURES_DATA.length} features`;
+    }
+
+    // Filter & Search Logic
+    let currentStatusFilter = 'all';
+    let currentFeasibilityFilter = 'all';
+    let currentSearchTerm = '';
+
+    function applyFilters() {
+      let filtered = FEATURES_DATA.filter(item => {
+        // Search Filter
+        if (currentSearchTerm) {
+          const term = currentSearchTerm.toLowerCase();
+          const matches = item.name.toLowerCase().includes(term) ||
+                          item.desc.toLowerCase().includes(term) ||
+                          item.reason.toLowerCase().includes(term) ||
+                          item.req.toLowerCase().includes(term) ||
+                          item.status.toLowerCase().includes(term) ||
+                          item.feasibility.toLowerCase().includes(term);
+          if (!matches) return false;
+        }
+
+        // Status Filter
+        if (currentStatusFilter !== 'all') {
+          if (currentStatusFilter === 'Other') {
+            if (['Required', 'Discussed', 'Client confirmation', 'Architecture decision', 'Future enhancement'].includes(item.status)) {
+              return false;
+            }
+          } else if (item.status !== currentStatusFilter) {
+            return false;
+          }
+        }
+
+        // Feasibility Filter
+        if (currentFeasibilityFilter !== 'all') {
+          if (item.feasibilityType !== currentFeasibilityFilter) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+
+      renderFeatures(filtered);
+    }
+
+    // Search input listener
+    document.getElementById('featureSearchInput').addEventListener('input', function(e) {
+      currentSearchTerm = e.target.value.trim();
+      applyFilters();
+    });
+
+    // Filter pill click listeners
+    document.querySelectorAll('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filterType = this.getAttribute('data-filter-type');
+        const filterVal = this.getAttribute('data-filter-val');
+
+        // Toggle active class inside same row
+        this.parentElement.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+
+        if (filterType === 'status') {
+          currentStatusFilter = filterVal;
+        } else if (filterType === 'feasibility') {
+          currentFeasibilityFilter = filterVal;
+        }
+
+        applyFilters();
+      });
+    });
+
+    // Reset button
+    document.getElementById('resetFiltersBtn').addEventListener('click', function() {
+      currentStatusFilter = 'all';
+      currentFeasibilityFilter = 'all';
+      currentSearchTerm = '';
+      document.getElementById('featureSearchInput').value = '';
+
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        if (btn.getAttribute('data-filter-val') === 'all') {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      applyFilters();
+    });
+
+    // Theme Toggle
+    document.getElementById('themeToggleBtn').addEventListener('click', function() {
+      const current = document.body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.body.setAttribute('data-theme', next);
+    });
+
+    // Initial Render
+    renderFeatures(FEATURES_DATA);
+  </script>
+</body>
+</html>
+
