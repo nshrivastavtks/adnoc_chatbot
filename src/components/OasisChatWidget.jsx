@@ -121,7 +121,7 @@ function processMessagesWithThoughts(rawMessages) {
   return processed;
 }
 
-export default function OasisChatWidget({ isOpen, onClose }) {
+export default function OasisChatWidget({ isOpen, onClose, pageContext = null }) {
   // Theme context for dark/light appearance
   const { theme, toggleTheme, isDark } = useTheme();
 
@@ -428,7 +428,7 @@ export default function OasisChatWidget({ isOpen, onClose }) {
     };
 
     try {
-      const copilotResult = await copilotService.askCopilot(text, handleIncomingActivity);
+      const copilotResult = await copilotService.askCopilot(text, handleIncomingActivity, pageContext);
 
       if (!finalContent && copilotResult?.responses?.length > 0) {
         for (const resp of copilotResult.responses) {
@@ -821,7 +821,13 @@ export default function OasisChatWidget({ isOpen, onClose }) {
                               <button
                                 key={idx}
                                 className="oasis-action-chip"
-                                onClick={() => handleSendMessage(action.value || action.title)}
+                                onClick={() => {
+                                  if (action.isAuthUrl || (action.value && (action.value.startsWith('http://') || action.value.startsWith('https://')))) {
+                                    window.open(action.value, '_blank', 'noopener,noreferrer,width=600,height=700');
+                                  } else {
+                                    handleSendMessage(action.value || action.title);
+                                  }
+                                }}
                               >
                                 {action.title}
                               </button>

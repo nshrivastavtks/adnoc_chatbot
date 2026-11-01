@@ -309,7 +309,7 @@ class CopilotService {
    * @param {function} [onActivity] - Optional callback (parsedActivity) => void called as each response arrives
    * @returns {Promise<{ responses: Array<{ text: string, suggestedActions: Array }> }>}
    */
-  async askCopilot(userMessage, onActivity = null) {
+  async askCopilot(userMessage, onActivity = null, channelData = null) {
     if (!this.isConfigured()) {
       return {
         responses: [
@@ -354,6 +354,22 @@ class CopilotService {
         }
       }
 
+      // Build Invisible Prompt Context Envelope (Zero Latency Screen & Metrics Tracking)
+      let textWithContext = userMessage;
+      if (channelData) {
+        const screen = channelData.activeDashboard || "Dashboard";
+        const gc = channelData.selectedGC || "All GCs";
+        const route = channelData.currentRoute || "";
+        const status = channelData.summaryStatus || "";
+        const metricsStr = channelData.liveMetrics ? JSON.stringify(channelData.liveMetrics) : "";
+
+        textWithContext = `[CURRENT OPERATIONAL CONTEXT: Active_Screen="${screen}", Route="${route}", Selected_GC="${gc}", System_Status="${status}"` + 
+          (metricsStr ? `, Live_Dashboard_Metrics=${metricsStr}` : "") + 
+          `]
+
+Operator Question: ${userMessage}`;
+      }
+
       // Post user message activity to Copilot Studio
       const postRes = await fetch(
         `https://directline.botframework.com/v3/directline/conversations/${this.conversationId}/activities`,
@@ -366,7 +382,8 @@ class CopilotService {
           body: JSON.stringify({
             type: 'message',
             from: { id: this.userId, name: 'User' },
-            text: userMessage,
+            text: textWithContext,
+            channelData: channelData || {},
           }),
         }
       );

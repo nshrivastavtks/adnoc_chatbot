@@ -8,7 +8,8 @@
     "server": "node server/server.js",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "api": "python server/fastapi_server.py"
   },
   "dependencies": {
     "marked": "^18.0.14",

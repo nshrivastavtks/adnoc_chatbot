@@ -1,0 +1,451 @@
+Discrepancy_ID,Gathering_Center_ID,Console_ID,Tag_Number,Deviation_Type,DCS_Active_Setting,MADB_Approved_Setting,Aging_Days,Aging_Category,Repetitive_Alarm_Flag,Risk_Ranking,Assigned_Engineer
+MADB-DISC-00001,GC-04,Console-01,GC04-TT-1747,Setpoint Mismatch (DCS vs MADB),65 % / bar,65 % / bar,19,16 - 30 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00002,GC-04,Console-06,GC04-PT-3344,Disabled Alarm without MOC,90 % / bar,87 % / bar,62,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00003,GC-05,Console-07,GC05-LT-1880,Disabled Alarm without MOC,57 % / bar,83 % / bar,80,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00004,GC-03,Console-06,GC03-FT-4656,Priority Downgrade Unapproved,81 % / bar,84 % / bar,33,> 30 Days,No,High,Nikhil Shrivastav
+MADB-DISC-00005,GC-05,Console-08,GC05-PT-3737,Deadband Config Divergence,73 % / bar,73 % / bar,98,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00006,GC-01,Console-03,GC01-PT-1931,Disabled Alarm without MOC,95 % / bar,69 % / bar,107,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00007,GC-02,Console-06,GC02-FT-2854,Disabled Alarm without MOC,82 % / bar,65 % / bar,71,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00008,GC-04,Console-04,GC04-TT-4441,Priority Downgrade Unapproved,72 % / bar,76 % / bar,100,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00009,GC-05,Console-03,GC05-XV-4523,Suppressed / Shelved Expired,73 % / bar,77 % / bar,68,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00010,GC-02,Console-03,GC02-FT-1651,Setpoint Mismatch (DCS vs MADB),89 % / bar,67 % / bar,88,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00011,GC-02,Console-07,GC02-TT-2141,Setpoint Mismatch (DCS vs MADB),76 % / bar,88 % / bar,52,> 30 Days,No,High,Hamad Al-Ameri
+MADB-DISC-00012,GC-04,Console-08,GC04-FT-1558,Deadband Config Divergence,85 % / bar,81 % / bar,1,< 15 Days,No,Medium,Gokul Raktate
+MADB-DISC-00013,GC-03,Console-04,GC03-XV-3433,Setpoint Mismatch (DCS vs MADB),59 % / bar,75 % / bar,8,< 15 Days,Yes,Medium,Sultan Al-Mansouri
+MADB-DISC-00014,GC-02,Console-04,GC02-LT-4221,Priority Downgrade Unapproved,62 % / bar,67 % / bar,83,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00015,GC-03,Console-02,GC03-TT-4946,Deadband Config Divergence,87 % / bar,90 % / bar,18,16 - 30 Days,Yes,Medium,Mohammed Al-Zaabi
+MADB-DISC-00016,GC-02,Console-04,GC02-LT-1584,Deadband Config Divergence,57 % / bar,76 % / bar,98,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00017,GC-03,Console-02,GC03-XV-2930,Priority Downgrade Unapproved,57 % / bar,77 % / bar,85,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00018,GC-05,Console-08,GC05-TT-1289,Deadband Config Divergence,74 % / bar,86 % / bar,113,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00019,GC-03,Console-02,GC03-LT-2745,Suppressed / Shelved Expired,81 % / bar,84 % / bar,22,16 - 30 Days,Yes,Medium,Gokul Raktate
+MADB-DISC-00020,GC-03,Console-04,GC03-XV-1423,Setpoint Mismatch (DCS vs MADB),73 % / bar,67 % / bar,94,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00021,GC-04,Console-07,GC04-LT-1233,Setpoint Mismatch (DCS vs MADB),67 % / bar,88 % / bar,111,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00022,GC-03,Console-06,GC03-LT-3732,Deadband Config Divergence,95 % / bar,85 % / bar,46,> 30 Days,No,High,Mohammed Al-Zaabi
+MADB-DISC-00023,GC-04,Console-04,GC04-XV-3028,Priority Downgrade Unapproved,56 % / bar,84 % / bar,76,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00024,GC-04,Console-07,GC04-XV-3126,Disabled Alarm without MOC,91 % / bar,90 % / bar,6,< 15 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00025,GC-01,Console-02,GC01-PT-4960,Priority Downgrade Unapproved,88 % / bar,73 % / bar,47,> 30 Days,Yes,High,Gokul Raktate
+MADB-DISC-00026,GC-04,Console-01,GC04-FT-3651,Disabled Alarm without MOC,83 % / bar,61 % / bar,110,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00027,GC-04,Console-07,GC04-PT-1885,Suppressed / Shelved Expired,56 % / bar,69 % / bar,24,16 - 30 Days,No,Medium,Rashid Al-Khouri
+MADB-DISC-00028,GC-04,Console-01,GC04-LT-4480,Deadband Config Divergence,72 % / bar,90 % / bar,46,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00029,GC-02,Console-05,GC02-LT-4211,Setpoint Mismatch (DCS vs MADB),66 % / bar,84 % / bar,42,> 30 Days,Yes,High,Gokul Raktate
+MADB-DISC-00030,GC-02,Console-04,GC02-XV-4158,Suppressed / Shelved Expired,72 % / bar,84 % / bar,83,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00031,GC-02,Console-08,GC02-PT-2368,Deadband Config Divergence,64 % / bar,70 % / bar,79,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00032,GC-03,Console-02,GC03-PT-3620,Disabled Alarm without MOC,61 % / bar,84 % / bar,41,> 30 Days,Yes,High,Gokul Raktate
+MADB-DISC-00033,GC-04,Console-04,GC04-FT-4507,Disabled Alarm without MOC,73 % / bar,84 % / bar,45,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00034,GC-02,Console-03,GC02-FT-1066,Setpoint Mismatch (DCS vs MADB),94 % / bar,80 % / bar,25,16 - 30 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00035,GC-05,Console-05,GC05-XV-3205,Priority Downgrade Unapproved,62 % / bar,62 % / bar,51,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00036,GC-01,Console-07,GC01-FT-1598,Deadband Config Divergence,74 % / bar,63 % / bar,69,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00037,GC-03,Console-02,GC03-FT-1921,Disabled Alarm without MOC,59 % / bar,81 % / bar,106,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00038,GC-03,Console-01,GC03-LT-1920,Priority Downgrade Unapproved,91 % / bar,85 % / bar,32,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00039,GC-02,Console-03,GC02-PT-2216,Priority Downgrade Unapproved,78 % / bar,73 % / bar,3,< 15 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00040,GC-05,Console-04,GC05-LT-1763,Suppressed / Shelved Expired,74 % / bar,83 % / bar,75,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00041,GC-03,Console-06,GC03-FT-2767,Deadband Config Divergence,70 % / bar,77 % / bar,47,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00042,GC-03,Console-02,GC03-TT-2318,Priority Downgrade Unapproved,56 % / bar,89 % / bar,102,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00043,GC-05,Console-08,GC05-XV-2285,Setpoint Mismatch (DCS vs MADB),72 % / bar,82 % / bar,104,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00044,GC-05,Console-04,GC05-LT-2103,Suppressed / Shelved Expired,78 % / bar,75 % / bar,108,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00045,GC-05,Console-07,GC05-PT-4905,Priority Downgrade Unapproved,91 % / bar,61 % / bar,3,< 15 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00046,GC-03,Console-08,GC03-TT-1262,Deadband Config Divergence,86 % / bar,68 % / bar,9,< 15 Days,Yes,Medium,Rashid Al-Khouri
+MADB-DISC-00047,GC-01,Console-08,GC01-LT-3885,Priority Downgrade Unapproved,69 % / bar,77 % / bar,51,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00048,GC-03,Console-06,GC03-TT-3335,Suppressed / Shelved Expired,93 % / bar,78 % / bar,53,> 30 Days,No,High,Hamad Al-Ameri
+MADB-DISC-00049,GC-03,Console-01,GC03-XV-1217,Deadband Config Divergence,89 % / bar,62 % / bar,76,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00050,GC-05,Console-07,GC05-TT-4001,Priority Downgrade Unapproved,61 % / bar,86 % / bar,32,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00051,GC-02,Console-01,GC02-LT-3985,Setpoint Mismatch (DCS vs MADB),86 % / bar,82 % / bar,43,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00052,GC-04,Console-07,GC04-LT-3853,Disabled Alarm without MOC,56 % / bar,69 % / bar,18,16 - 30 Days,Yes,Medium,Sultan Al-Mansouri
+MADB-DISC-00053,GC-03,Console-03,GC03-LT-4601,Deadband Config Divergence,75 % / bar,66 % / bar,64,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00054,GC-02,Console-06,GC02-PT-2392,Disabled Alarm without MOC,51 % / bar,88 % / bar,97,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00055,GC-05,Console-01,GC05-XV-1243,Deadband Config Divergence,50 % / bar,60 % / bar,13,< 15 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00056,GC-03,Console-07,GC03-FT-1114,Suppressed / Shelved Expired,61 % / bar,66 % / bar,73,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00057,GC-05,Console-08,GC05-TT-3193,Priority Downgrade Unapproved,59 % / bar,79 % / bar,45,> 30 Days,No,High,Gokul Raktate
+MADB-DISC-00058,GC-03,Console-03,GC03-LT-3894,Priority Downgrade Unapproved,78 % / bar,60 % / bar,65,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00059,GC-05,Console-01,GC05-XV-4639,Setpoint Mismatch (DCS vs MADB),56 % / bar,71 % / bar,104,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00060,GC-02,Console-03,GC02-PT-3039,Priority Downgrade Unapproved,71 % / bar,90 % / bar,78,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00061,GC-04,Console-07,GC04-LT-4867,Setpoint Mismatch (DCS vs MADB),65 % / bar,71 % / bar,86,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00062,GC-02,Console-04,GC02-LT-1772,Disabled Alarm without MOC,92 % / bar,82 % / bar,6,< 15 Days,No,Medium,Ahmed Al-Shehhi
+MADB-DISC-00063,GC-05,Console-02,GC05-XV-1373,Deadband Config Divergence,94 % / bar,77 % / bar,117,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00064,GC-05,Console-07,GC05-XV-3635,Priority Downgrade Unapproved,62 % / bar,69 % / bar,37,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00065,GC-04,Console-07,GC04-LT-2545,Setpoint Mismatch (DCS vs MADB),70 % / bar,77 % / bar,63,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00066,GC-04,Console-07,GC04-FT-3039,Deadband Config Divergence,83 % / bar,86 % / bar,99,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00067,GC-01,Console-04,GC01-PT-2258,Suppressed / Shelved Expired,61 % / bar,80 % / bar,96,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00068,GC-03,Console-01,GC03-XV-1115,Setpoint Mismatch (DCS vs MADB),84 % / bar,61 % / bar,39,> 30 Days,No,High,Rashid Al-Khouri
+MADB-DISC-00069,GC-04,Console-03,GC04-XV-2519,Setpoint Mismatch (DCS vs MADB),61 % / bar,88 % / bar,117,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00070,GC-02,Console-06,GC02-PT-3925,Priority Downgrade Unapproved,89 % / bar,60 % / bar,64,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00071,GC-01,Console-07,GC01-TT-4688,Setpoint Mismatch (DCS vs MADB),92 % / bar,86 % / bar,119,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00072,GC-03,Console-03,GC03-LT-4386,Priority Downgrade Unapproved,52 % / bar,64 % / bar,48,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00073,GC-02,Console-04,GC02-XV-3739,Deadband Config Divergence,86 % / bar,82 % / bar,113,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00074,GC-03,Console-04,GC03-FT-2677,Setpoint Mismatch (DCS vs MADB),67 % / bar,86 % / bar,54,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00075,GC-02,Console-08,GC02-FT-3459,Setpoint Mismatch (DCS vs MADB),94 % / bar,84 % / bar,81,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00076,GC-04,Console-03,GC04-TT-1289,Setpoint Mismatch (DCS vs MADB),81 % / bar,62 % / bar,15,< 15 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00077,GC-02,Console-06,GC02-TT-4865,Deadband Config Divergence,75 % / bar,69 % / bar,88,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00078,GC-05,Console-05,GC05-FT-4505,Suppressed / Shelved Expired,75 % / bar,86 % / bar,34,> 30 Days,No,High,Mohammed Al-Zaabi
+MADB-DISC-00079,GC-02,Console-02,GC02-XV-4468,Disabled Alarm without MOC,80 % / bar,75 % / bar,26,16 - 30 Days,No,Medium,Mohammed Al-Zaabi
+MADB-DISC-00080,GC-01,Console-02,GC01-TT-1156,Disabled Alarm without MOC,54 % / bar,67 % / bar,24,16 - 30 Days,No,Medium,Gokul Raktate
+MADB-DISC-00081,GC-04,Console-06,GC04-LT-4025,Priority Downgrade Unapproved,92 % / bar,89 % / bar,57,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00082,GC-05,Console-04,GC05-TT-3970,Deadband Config Divergence,71 % / bar,87 % / bar,6,< 15 Days,Yes,Medium,Sultan Al-Mansouri
+MADB-DISC-00083,GC-03,Console-03,GC03-FT-2893,Priority Downgrade Unapproved,74 % / bar,64 % / bar,116,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00084,GC-03,Console-02,GC03-TT-1754,Priority Downgrade Unapproved,51 % / bar,87 % / bar,43,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00085,GC-04,Console-02,GC04-TT-3465,Suppressed / Shelved Expired,85 % / bar,90 % / bar,37,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00086,GC-03,Console-01,GC03-PT-3805,Setpoint Mismatch (DCS vs MADB),89 % / bar,83 % / bar,53,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00087,GC-02,Console-06,GC02-FT-1158,Priority Downgrade Unapproved,50 % / bar,72 % / bar,116,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00088,GC-01,Console-01,GC01-LT-4149,Suppressed / Shelved Expired,90 % / bar,61 % / bar,16,16 - 30 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00089,GC-05,Console-02,GC05-PT-3658,Disabled Alarm without MOC,68 % / bar,81 % / bar,120,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00090,GC-05,Console-07,GC05-LT-4729,Priority Downgrade Unapproved,72 % / bar,80 % / bar,88,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00091,GC-04,Console-08,GC04-TT-2861,Suppressed / Shelved Expired,68 % / bar,80 % / bar,113,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00092,GC-02,Console-07,GC02-FT-4613,Priority Downgrade Unapproved,69 % / bar,64 % / bar,48,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00093,GC-01,Console-08,GC01-LT-3911,Suppressed / Shelved Expired,58 % / bar,86 % / bar,110,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00094,GC-03,Console-04,GC03-LT-2725,Disabled Alarm without MOC,74 % / bar,74 % / bar,59,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00095,GC-03,Console-06,GC03-FT-3726,Disabled Alarm without MOC,65 % / bar,66 % / bar,18,16 - 30 Days,Yes,Medium,Sultan Al-Mansouri
+MADB-DISC-00096,GC-02,Console-04,GC02-XV-2489,Disabled Alarm without MOC,76 % / bar,71 % / bar,71,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00097,GC-03,Console-04,GC03-LT-1579,Disabled Alarm without MOC,69 % / bar,88 % / bar,14,< 15 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00098,GC-05,Console-07,GC05-PT-1817,Priority Downgrade Unapproved,92 % / bar,72 % / bar,44,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00099,GC-05,Console-07,GC05-TT-4864,Disabled Alarm without MOC,86 % / bar,81 % / bar,4,< 15 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00100,GC-02,Console-05,GC02-XV-4151,Priority Downgrade Unapproved,62 % / bar,64 % / bar,83,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00101,GC-04,Console-06,GC04-LT-2007,Priority Downgrade Unapproved,89 % / bar,89 % / bar,98,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00102,GC-05,Console-01,GC05-PT-4224,Setpoint Mismatch (DCS vs MADB),53 % / bar,70 % / bar,11,< 15 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00103,GC-01,Console-06,GC01-FT-1832,Priority Downgrade Unapproved,73 % / bar,79 % / bar,28,16 - 30 Days,No,Medium,Mohammed Al-Zaabi
+MADB-DISC-00104,GC-03,Console-08,GC03-LT-2387,Priority Downgrade Unapproved,85 % / bar,65 % / bar,38,> 30 Days,No,High,Nikhil Shrivastav
+MADB-DISC-00105,GC-02,Console-03,GC02-LT-1486,Suppressed / Shelved Expired,85 % / bar,77 % / bar,117,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00106,GC-04,Console-05,GC04-TT-4999,Setpoint Mismatch (DCS vs MADB),56 % / bar,84 % / bar,85,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00107,GC-01,Console-03,GC01-LT-2937,Disabled Alarm without MOC,87 % / bar,82 % / bar,62,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00108,GC-03,Console-08,GC03-XV-3343,Priority Downgrade Unapproved,92 % / bar,78 % / bar,58,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00109,GC-03,Console-06,GC03-PT-4632,Deadband Config Divergence,69 % / bar,81 % / bar,9,< 15 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00110,GC-04,Console-03,GC04-PT-4830,Priority Downgrade Unapproved,55 % / bar,71 % / bar,82,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00111,GC-05,Console-08,GC05-PT-3548,Suppressed / Shelved Expired,66 % / bar,66 % / bar,54,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00112,GC-05,Console-05,GC05-XV-4704,Setpoint Mismatch (DCS vs MADB),53 % / bar,80 % / bar,63,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00113,GC-02,Console-05,GC02-FT-2839,Disabled Alarm without MOC,92 % / bar,74 % / bar,44,> 30 Days,No,High,Gokul Raktate
+MADB-DISC-00114,GC-01,Console-06,GC01-XV-1129,Priority Downgrade Unapproved,50 % / bar,83 % / bar,112,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00115,GC-05,Console-01,GC05-FT-2560,Priority Downgrade Unapproved,52 % / bar,82 % / bar,116,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00116,GC-03,Console-07,GC03-FT-2503,Suppressed / Shelved Expired,76 % / bar,82 % / bar,110,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00117,GC-03,Console-03,GC03-FT-3946,Deadband Config Divergence,67 % / bar,62 % / bar,71,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00118,GC-04,Console-02,GC04-FT-4529,Suppressed / Shelved Expired,58 % / bar,85 % / bar,115,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00119,GC-01,Console-04,GC01-PT-1726,Deadband Config Divergence,65 % / bar,84 % / bar,9,< 15 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00120,GC-01,Console-02,GC01-PT-3962,Setpoint Mismatch (DCS vs MADB),89 % / bar,62 % / bar,95,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00121,GC-02,Console-08,GC02-FT-4220,Setpoint Mismatch (DCS vs MADB),58 % / bar,66 % / bar,79,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00122,GC-01,Console-03,GC01-PT-3942,Setpoint Mismatch (DCS vs MADB),64 % / bar,66 % / bar,1,< 15 Days,No,Medium,Gokul Raktate
+MADB-DISC-00123,GC-01,Console-02,GC01-LT-2313,Suppressed / Shelved Expired,95 % / bar,75 % / bar,25,16 - 30 Days,Yes,Medium,Sultan Al-Mansouri
+MADB-DISC-00124,GC-05,Console-03,GC05-LT-2180,Suppressed / Shelved Expired,61 % / bar,76 % / bar,111,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00125,GC-01,Console-02,GC01-TT-4991,Priority Downgrade Unapproved,86 % / bar,66 % / bar,34,> 30 Days,No,High,Hamad Al-Ameri
+MADB-DISC-00126,GC-01,Console-02,GC01-TT-1767,Deadband Config Divergence,75 % / bar,80 % / bar,97,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00127,GC-05,Console-05,GC05-XV-2689,Suppressed / Shelved Expired,66 % / bar,86 % / bar,82,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00128,GC-03,Console-04,GC03-XV-1029,Deadband Config Divergence,53 % / bar,62 % / bar,37,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00129,GC-04,Console-06,GC04-PT-3539,Disabled Alarm without MOC,78 % / bar,60 % / bar,11,< 15 Days,Yes,Medium,Gokul Raktate
+MADB-DISC-00130,GC-01,Console-06,GC01-XV-4160,Deadband Config Divergence,54 % / bar,78 % / bar,90,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00131,GC-03,Console-06,GC03-LT-2467,Disabled Alarm without MOC,81 % / bar,70 % / bar,48,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00132,GC-05,Console-04,GC05-TT-3406,Priority Downgrade Unapproved,79 % / bar,88 % / bar,6,< 15 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00133,GC-04,Console-06,GC04-LT-2900,Disabled Alarm without MOC,74 % / bar,73 % / bar,58,> 30 Days,No,High,Gokul Raktate
+MADB-DISC-00134,GC-01,Console-03,GC01-FT-2563,Priority Downgrade Unapproved,92 % / bar,88 % / bar,52,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00135,GC-02,Console-03,GC02-XV-4875,Priority Downgrade Unapproved,80 % / bar,64 % / bar,28,16 - 30 Days,No,Medium,Ahmed Al-Shehhi
+MADB-DISC-00136,GC-03,Console-06,GC03-TT-1089,Disabled Alarm without MOC,85 % / bar,68 % / bar,51,> 30 Days,No,High,Nikhil Shrivastav
+MADB-DISC-00137,GC-02,Console-04,GC02-LT-3486,Disabled Alarm without MOC,60 % / bar,75 % / bar,56,> 30 Days,No,High,Nikhil Shrivastav
+MADB-DISC-00138,GC-01,Console-06,GC01-PT-1275,Deadband Config Divergence,59 % / bar,67 % / bar,91,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00139,GC-05,Console-08,GC05-TT-2706,Disabled Alarm without MOC,60 % / bar,70 % / bar,2,< 15 Days,Yes,Medium,Gokul Raktate
+MADB-DISC-00140,GC-03,Console-07,GC03-XV-1500,Suppressed / Shelved Expired,73 % / bar,85 % / bar,17,16 - 30 Days,Yes,Medium,Rashid Al-Khouri
+MADB-DISC-00141,GC-02,Console-06,GC02-XV-4975,Disabled Alarm without MOC,76 % / bar,67 % / bar,9,< 15 Days,No,Medium,Rashid Al-Khouri
+MADB-DISC-00142,GC-02,Console-06,GC02-TT-4728,Deadband Config Divergence,67 % / bar,77 % / bar,82,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00143,GC-03,Console-06,GC03-TT-4695,Priority Downgrade Unapproved,64 % / bar,82 % / bar,42,> 30 Days,Yes,High,Hamad Al-Ameri
+MADB-DISC-00144,GC-05,Console-04,GC05-TT-3002,Suppressed / Shelved Expired,82 % / bar,88 % / bar,61,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00145,GC-01,Console-07,GC01-TT-3555,Deadband Config Divergence,88 % / bar,88 % / bar,11,< 15 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00146,GC-03,Console-02,GC03-LT-2596,Priority Downgrade Unapproved,59 % / bar,71 % / bar,102,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00147,GC-01,Console-08,GC01-TT-1915,Setpoint Mismatch (DCS vs MADB),80 % / bar,77 % / bar,42,> 30 Days,No,High,Hamad Al-Ameri
+MADB-DISC-00148,GC-02,Console-05,GC02-FT-2986,Deadband Config Divergence,91 % / bar,66 % / bar,78,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00149,GC-05,Console-02,GC05-FT-4005,Setpoint Mismatch (DCS vs MADB),82 % / bar,69 % / bar,95,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00150,GC-02,Console-07,GC02-LT-3870,Setpoint Mismatch (DCS vs MADB),68 % / bar,60 % / bar,39,> 30 Days,No,High,Sultan Al-Mansouri
+MADB-DISC-00151,GC-01,Console-07,GC01-PT-2510,Disabled Alarm without MOC,78 % / bar,80 % / bar,100,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00152,GC-04,Console-03,GC04-XV-2820,Deadband Config Divergence,67 % / bar,66 % / bar,14,< 15 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00153,GC-05,Console-08,GC05-FT-1668,Suppressed / Shelved Expired,57 % / bar,61 % / bar,17,16 - 30 Days,No,Medium,Mohammed Al-Zaabi
+MADB-DISC-00154,GC-03,Console-08,GC03-FT-1581,Deadband Config Divergence,51 % / bar,80 % / bar,107,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00155,GC-04,Console-06,GC04-LT-1730,Deadband Config Divergence,91 % / bar,69 % / bar,79,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00156,GC-03,Console-01,GC03-XV-1229,Priority Downgrade Unapproved,58 % / bar,64 % / bar,64,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00157,GC-01,Console-03,GC01-TT-1377,Deadband Config Divergence,71 % / bar,84 % / bar,46,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00158,GC-01,Console-08,GC01-LT-3233,Setpoint Mismatch (DCS vs MADB),75 % / bar,82 % / bar,68,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00159,GC-02,Console-02,GC02-TT-2838,Priority Downgrade Unapproved,66 % / bar,67 % / bar,15,< 15 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00160,GC-02,Console-01,GC02-XV-1100,Setpoint Mismatch (DCS vs MADB),80 % / bar,61 % / bar,83,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00161,GC-01,Console-04,GC01-TT-4892,Priority Downgrade Unapproved,70 % / bar,72 % / bar,112,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00162,GC-04,Console-01,GC04-XV-4136,Deadband Config Divergence,94 % / bar,73 % / bar,64,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00163,GC-05,Console-02,GC05-PT-1820,Suppressed / Shelved Expired,81 % / bar,60 % / bar,5,< 15 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00164,GC-03,Console-02,GC03-XV-4612,Deadband Config Divergence,75 % / bar,66 % / bar,66,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00165,GC-02,Console-01,GC02-XV-2153,Deadband Config Divergence,60 % / bar,86 % / bar,72,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00166,GC-02,Console-05,GC02-FT-1802,Deadband Config Divergence,91 % / bar,69 % / bar,115,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00167,GC-04,Console-01,GC04-LT-3472,Suppressed / Shelved Expired,57 % / bar,61 % / bar,99,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00168,GC-04,Console-02,GC04-TT-1820,Suppressed / Shelved Expired,94 % / bar,81 % / bar,95,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00169,GC-02,Console-05,GC02-FT-2900,Setpoint Mismatch (DCS vs MADB),66 % / bar,66 % / bar,83,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00170,GC-05,Console-01,GC05-FT-1051,Priority Downgrade Unapproved,63 % / bar,75 % / bar,107,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00171,GC-04,Console-06,GC04-LT-2601,Suppressed / Shelved Expired,80 % / bar,77 % / bar,97,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00172,GC-05,Console-05,GC05-TT-1319,Suppressed / Shelved Expired,51 % / bar,79 % / bar,14,< 15 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00173,GC-01,Console-01,GC01-FT-4810,Setpoint Mismatch (DCS vs MADB),86 % / bar,90 % / bar,39,> 30 Days,No,High,Gokul Raktate
+MADB-DISC-00174,GC-02,Console-02,GC02-PT-2508,Priority Downgrade Unapproved,73 % / bar,62 % / bar,83,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00175,GC-03,Console-07,GC03-PT-2219,Setpoint Mismatch (DCS vs MADB),66 % / bar,74 % / bar,116,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00176,GC-02,Console-02,GC02-PT-4606,Disabled Alarm without MOC,65 % / bar,74 % / bar,23,16 - 30 Days,No,Medium,Mohammed Al-Zaabi
+MADB-DISC-00177,GC-05,Console-05,GC05-FT-1093,Suppressed / Shelved Expired,59 % / bar,66 % / bar,62,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00178,GC-01,Console-07,GC01-LT-1123,Setpoint Mismatch (DCS vs MADB),76 % / bar,65 % / bar,64,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00179,GC-01,Console-01,GC01-PT-4930,Deadband Config Divergence,62 % / bar,85 % / bar,91,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00180,GC-03,Console-01,GC03-FT-4946,Priority Downgrade Unapproved,50 % / bar,80 % / bar,31,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00181,GC-01,Console-07,GC01-XV-4900,Disabled Alarm without MOC,53 % / bar,69 % / bar,102,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00182,GC-03,Console-02,GC03-XV-2505,Disabled Alarm without MOC,73 % / bar,81 % / bar,106,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00183,GC-03,Console-03,GC03-FT-4012,Deadband Config Divergence,73 % / bar,74 % / bar,53,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00184,GC-03,Console-05,GC03-TT-4336,Disabled Alarm without MOC,77 % / bar,62 % / bar,87,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00185,GC-05,Console-05,GC05-TT-2364,Deadband Config Divergence,84 % / bar,87 % / bar,83,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00186,GC-02,Console-01,GC02-FT-3075,Priority Downgrade Unapproved,60 % / bar,87 % / bar,77,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00187,GC-05,Console-03,GC05-TT-4378,Disabled Alarm without MOC,82 % / bar,77 % / bar,11,< 15 Days,Yes,Medium,Mohammed Al-Zaabi
+MADB-DISC-00188,GC-01,Console-02,GC01-XV-1017,Deadband Config Divergence,64 % / bar,81 % / bar,120,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00189,GC-03,Console-08,GC03-PT-2334,Deadband Config Divergence,92 % / bar,86 % / bar,71,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00190,GC-04,Console-04,GC04-XV-2439,Disabled Alarm without MOC,64 % / bar,80 % / bar,89,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00191,GC-04,Console-03,GC04-TT-3934,Setpoint Mismatch (DCS vs MADB),56 % / bar,75 % / bar,115,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00192,GC-02,Console-02,GC02-FT-1991,Disabled Alarm without MOC,90 % / bar,63 % / bar,39,> 30 Days,Yes,High,Hamad Al-Ameri
+MADB-DISC-00193,GC-02,Console-01,GC02-PT-1128,Deadband Config Divergence,93 % / bar,62 % / bar,16,16 - 30 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00194,GC-01,Console-05,GC01-LT-4896,Setpoint Mismatch (DCS vs MADB),75 % / bar,60 % / bar,55,> 30 Days,Yes,High,Gokul Raktate
+MADB-DISC-00195,GC-05,Console-05,GC05-FT-2589,Deadband Config Divergence,87 % / bar,89 % / bar,27,16 - 30 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00196,GC-04,Console-01,GC04-LT-1130,Disabled Alarm without MOC,94 % / bar,75 % / bar,41,> 30 Days,No,High,Rashid Al-Khouri
+MADB-DISC-00197,GC-04,Console-02,GC04-LT-3821,Suppressed / Shelved Expired,81 % / bar,60 % / bar,80,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00198,GC-04,Console-01,GC04-LT-4110,Setpoint Mismatch (DCS vs MADB),55 % / bar,67 % / bar,61,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00199,GC-01,Console-08,GC01-LT-4069,Deadband Config Divergence,52 % / bar,70 % / bar,31,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00200,GC-03,Console-08,GC03-TT-3514,Disabled Alarm without MOC,87 % / bar,87 % / bar,13,< 15 Days,No,Medium,Sultan Al-Mansouri
+MADB-DISC-00201,GC-01,Console-08,GC01-PT-3057,Priority Downgrade Unapproved,74 % / bar,85 % / bar,60,> 30 Days,No,High,Hamad Al-Ameri
+MADB-DISC-00202,GC-05,Console-01,GC05-FT-3399,Setpoint Mismatch (DCS vs MADB),78 % / bar,69 % / bar,90,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00203,GC-02,Console-01,GC02-FT-3463,Deadband Config Divergence,54 % / bar,66 % / bar,55,> 30 Days,No,High,Sultan Al-Mansouri
+MADB-DISC-00204,GC-04,Console-08,GC04-TT-1024,Disabled Alarm without MOC,61 % / bar,84 % / bar,100,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00205,GC-04,Console-01,GC04-FT-1749,Priority Downgrade Unapproved,81 % / bar,67 % / bar,44,> 30 Days,Yes,High,Hamad Al-Ameri
+MADB-DISC-00206,GC-04,Console-02,GC04-PT-1674,Priority Downgrade Unapproved,86 % / bar,60 % / bar,17,16 - 30 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00207,GC-04,Console-08,GC04-FT-4254,Disabled Alarm without MOC,73 % / bar,80 % / bar,3,< 15 Days,Yes,Medium,Gokul Raktate
+MADB-DISC-00208,GC-05,Console-02,GC05-LT-2941,Setpoint Mismatch (DCS vs MADB),77 % / bar,62 % / bar,36,> 30 Days,No,High,Gokul Raktate
+MADB-DISC-00209,GC-01,Console-02,GC01-FT-4596,Deadband Config Divergence,58 % / bar,63 % / bar,61,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00210,GC-01,Console-03,GC01-PT-3337,Priority Downgrade Unapproved,84 % / bar,71 % / bar,86,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00211,GC-05,Console-05,GC05-LT-1274,Priority Downgrade Unapproved,52 % / bar,67 % / bar,75,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00212,GC-02,Console-03,GC02-FT-1546,Disabled Alarm without MOC,50 % / bar,63 % / bar,2,< 15 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00213,GC-05,Console-05,GC05-XV-3174,Setpoint Mismatch (DCS vs MADB),70 % / bar,89 % / bar,39,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00214,GC-02,Console-08,GC02-TT-1773,Disabled Alarm without MOC,61 % / bar,72 % / bar,62,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00215,GC-05,Console-02,GC05-TT-3733,Priority Downgrade Unapproved,54 % / bar,75 % / bar,110,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00216,GC-05,Console-02,GC05-XV-1675,Priority Downgrade Unapproved,90 % / bar,71 % / bar,81,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00217,GC-02,Console-05,GC02-LT-1245,Disabled Alarm without MOC,75 % / bar,60 % / bar,6,< 15 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00218,GC-02,Console-06,GC02-LT-2843,Suppressed / Shelved Expired,58 % / bar,75 % / bar,108,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00219,GC-05,Console-07,GC05-TT-1989,Suppressed / Shelved Expired,54 % / bar,73 % / bar,67,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00220,GC-05,Console-01,GC05-LT-1272,Suppressed / Shelved Expired,59 % / bar,84 % / bar,11,< 15 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00221,GC-01,Console-06,GC01-FT-2611,Deadband Config Divergence,69 % / bar,86 % / bar,60,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00222,GC-05,Console-06,GC05-FT-4504,Disabled Alarm without MOC,94 % / bar,78 % / bar,66,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00223,GC-05,Console-03,GC05-LT-2381,Setpoint Mismatch (DCS vs MADB),84 % / bar,76 % / bar,89,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00224,GC-05,Console-02,GC05-FT-3577,Deadband Config Divergence,88 % / bar,76 % / bar,120,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00225,GC-02,Console-06,GC02-FT-4716,Priority Downgrade Unapproved,62 % / bar,86 % / bar,73,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00226,GC-03,Console-07,GC03-FT-2081,Suppressed / Shelved Expired,89 % / bar,88 % / bar,55,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00227,GC-02,Console-05,GC02-TT-3815,Deadband Config Divergence,63 % / bar,85 % / bar,92,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00228,GC-04,Console-03,GC04-PT-3968,Deadband Config Divergence,90 % / bar,86 % / bar,82,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00229,GC-03,Console-03,GC03-LT-2536,Priority Downgrade Unapproved,86 % / bar,74 % / bar,51,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00230,GC-05,Console-06,GC05-TT-2044,Suppressed / Shelved Expired,85 % / bar,72 % / bar,10,< 15 Days,No,Medium,Ahmed Al-Shehhi
+MADB-DISC-00231,GC-01,Console-02,GC01-TT-4326,Deadband Config Divergence,87 % / bar,86 % / bar,119,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00232,GC-03,Console-07,GC03-TT-2089,Setpoint Mismatch (DCS vs MADB),88 % / bar,63 % / bar,55,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00233,GC-04,Console-07,GC04-LT-2283,Setpoint Mismatch (DCS vs MADB),53 % / bar,61 % / bar,18,16 - 30 Days,No,Medium,Rashid Al-Khouri
+MADB-DISC-00234,GC-01,Console-05,GC01-PT-3247,Suppressed / Shelved Expired,93 % / bar,73 % / bar,35,> 30 Days,No,High,Mohammed Al-Zaabi
+MADB-DISC-00235,GC-02,Console-01,GC02-XV-1246,Setpoint Mismatch (DCS vs MADB),67 % / bar,69 % / bar,15,< 15 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00236,GC-04,Console-04,GC04-TT-1903,Suppressed / Shelved Expired,85 % / bar,71 % / bar,78,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00237,GC-02,Console-03,GC02-PT-3268,Suppressed / Shelved Expired,74 % / bar,66 % / bar,41,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00238,GC-05,Console-01,GC05-TT-1374,Suppressed / Shelved Expired,81 % / bar,63 % / bar,95,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00239,GC-01,Console-04,GC01-LT-1906,Priority Downgrade Unapproved,64 % / bar,68 % / bar,59,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00240,GC-01,Console-01,GC01-TT-3750,Deadband Config Divergence,74 % / bar,74 % / bar,56,> 30 Days,Yes,High,Hamad Al-Ameri
+MADB-DISC-00241,GC-02,Console-04,GC02-PT-4471,Setpoint Mismatch (DCS vs MADB),59 % / bar,83 % / bar,53,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00242,GC-04,Console-07,GC04-PT-3218,Deadband Config Divergence,77 % / bar,85 % / bar,27,16 - 30 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00243,GC-05,Console-06,GC05-FT-1085,Disabled Alarm without MOC,78 % / bar,79 % / bar,65,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00244,GC-02,Console-06,GC02-TT-3882,Setpoint Mismatch (DCS vs MADB),74 % / bar,65 % / bar,77,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00245,GC-04,Console-04,GC04-TT-2288,Deadband Config Divergence,68 % / bar,88 % / bar,52,> 30 Days,No,High,Gokul Raktate
+MADB-DISC-00246,GC-02,Console-07,GC02-XV-4596,Disabled Alarm without MOC,65 % / bar,80 % / bar,4,< 15 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00247,GC-01,Console-08,GC01-PT-2593,Suppressed / Shelved Expired,81 % / bar,73 % / bar,45,> 30 Days,No,High,Mohammed Al-Zaabi
+MADB-DISC-00248,GC-04,Console-07,GC04-PT-2792,Deadband Config Divergence,66 % / bar,75 % / bar,45,> 30 Days,No,High,Rashid Al-Khouri
+MADB-DISC-00249,GC-02,Console-03,GC02-TT-4497,Suppressed / Shelved Expired,62 % / bar,87 % / bar,83,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00250,GC-01,Console-07,GC01-FT-1197,Priority Downgrade Unapproved,55 % / bar,79 % / bar,12,< 15 Days,Yes,Medium,Sultan Al-Mansouri
+MADB-DISC-00251,GC-05,Console-01,GC05-FT-1325,Suppressed / Shelved Expired,68 % / bar,64 % / bar,120,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00252,GC-04,Console-05,GC04-TT-1939,Disabled Alarm without MOC,64 % / bar,87 % / bar,40,> 30 Days,No,High,Mohammed Al-Zaabi
+MADB-DISC-00253,GC-01,Console-01,GC01-XV-3682,Priority Downgrade Unapproved,60 % / bar,67 % / bar,37,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00254,GC-01,Console-04,GC01-XV-3919,Setpoint Mismatch (DCS vs MADB),61 % / bar,77 % / bar,9,< 15 Days,Yes,Medium,Rashid Al-Khouri
+MADB-DISC-00255,GC-01,Console-08,GC01-XV-4117,Deadband Config Divergence,61 % / bar,67 % / bar,93,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00256,GC-01,Console-06,GC01-TT-4139,Deadband Config Divergence,82 % / bar,88 % / bar,66,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00257,GC-01,Console-07,GC01-TT-1685,Setpoint Mismatch (DCS vs MADB),65 % / bar,87 % / bar,61,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00258,GC-05,Console-06,GC05-XV-4208,Deadband Config Divergence,95 % / bar,63 % / bar,60,> 30 Days,No,High,Sultan Al-Mansouri
+MADB-DISC-00259,GC-02,Console-03,GC02-XV-4091,Setpoint Mismatch (DCS vs MADB),50 % / bar,69 % / bar,9,< 15 Days,Yes,Medium,Sultan Al-Mansouri
+MADB-DISC-00260,GC-04,Console-08,GC04-LT-3255,Suppressed / Shelved Expired,79 % / bar,90 % / bar,93,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00261,GC-05,Console-06,GC05-XV-3366,Disabled Alarm without MOC,60 % / bar,76 % / bar,97,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00262,GC-04,Console-03,GC04-PT-1848,Setpoint Mismatch (DCS vs MADB),69 % / bar,63 % / bar,77,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00263,GC-05,Console-07,GC05-LT-2540,Deadband Config Divergence,62 % / bar,84 % / bar,48,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00264,GC-01,Console-04,GC01-LT-4175,Priority Downgrade Unapproved,58 % / bar,80 % / bar,58,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00265,GC-03,Console-07,GC03-TT-1583,Setpoint Mismatch (DCS vs MADB),66 % / bar,75 % / bar,116,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00266,GC-04,Console-08,GC04-LT-2522,Priority Downgrade Unapproved,65 % / bar,90 % / bar,60,> 30 Days,No,High,Mohammed Al-Zaabi
+MADB-DISC-00267,GC-02,Console-02,GC02-FT-2533,Setpoint Mismatch (DCS vs MADB),91 % / bar,87 % / bar,45,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00268,GC-04,Console-02,GC04-XV-2205,Deadband Config Divergence,52 % / bar,89 % / bar,106,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00269,GC-04,Console-02,GC04-FT-2358,Priority Downgrade Unapproved,50 % / bar,63 % / bar,40,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00270,GC-02,Console-05,GC02-PT-1102,Suppressed / Shelved Expired,51 % / bar,74 % / bar,28,16 - 30 Days,Yes,Medium,Rashid Al-Khouri
+MADB-DISC-00271,GC-04,Console-06,GC04-XV-2886,Deadband Config Divergence,53 % / bar,85 % / bar,80,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00272,GC-05,Console-02,GC05-LT-4107,Disabled Alarm without MOC,92 % / bar,84 % / bar,56,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00273,GC-05,Console-02,GC05-TT-4822,Disabled Alarm without MOC,90 % / bar,68 % / bar,43,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00274,GC-02,Console-03,GC02-TT-1382,Suppressed / Shelved Expired,52 % / bar,61 % / bar,50,> 30 Days,No,High,Sultan Al-Mansouri
+MADB-DISC-00275,GC-03,Console-01,GC03-TT-1797,Disabled Alarm without MOC,59 % / bar,73 % / bar,73,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00276,GC-05,Console-05,GC05-TT-1003,Setpoint Mismatch (DCS vs MADB),80 % / bar,85 % / bar,21,16 - 30 Days,Yes,Medium,Rashid Al-Khouri
+MADB-DISC-00277,GC-01,Console-04,GC01-LT-4749,Priority Downgrade Unapproved,55 % / bar,81 % / bar,119,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00278,GC-04,Console-06,GC04-XV-3982,Deadband Config Divergence,86 % / bar,77 % / bar,109,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00279,GC-05,Console-06,GC05-FT-3158,Priority Downgrade Unapproved,87 % / bar,76 % / bar,86,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00280,GC-03,Console-04,GC03-TT-4338,Setpoint Mismatch (DCS vs MADB),82 % / bar,69 % / bar,56,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00281,GC-04,Console-07,GC04-PT-4900,Suppressed / Shelved Expired,56 % / bar,86 % / bar,39,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00282,GC-02,Console-04,GC02-TT-4608,Priority Downgrade Unapproved,94 % / bar,77 % / bar,60,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00283,GC-05,Console-06,GC05-LT-4042,Disabled Alarm without MOC,55 % / bar,67 % / bar,54,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00284,GC-02,Console-08,GC02-PT-4175,Deadband Config Divergence,75 % / bar,86 % / bar,119,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00285,GC-04,Console-03,GC04-LT-2939,Setpoint Mismatch (DCS vs MADB),69 % / bar,67 % / bar,43,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00286,GC-04,Console-08,GC04-LT-3411,Priority Downgrade Unapproved,68 % / bar,67 % / bar,52,> 30 Days,No,High,Sultan Al-Mansouri
+MADB-DISC-00287,GC-05,Console-03,GC05-FT-1653,Suppressed / Shelved Expired,55 % / bar,63 % / bar,42,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00288,GC-01,Console-02,GC01-PT-1615,Suppressed / Shelved Expired,94 % / bar,80 % / bar,55,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00289,GC-02,Console-01,GC02-PT-2931,Priority Downgrade Unapproved,73 % / bar,81 % / bar,5,< 15 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00290,GC-03,Console-02,GC03-PT-1677,Deadband Config Divergence,55 % / bar,61 % / bar,43,> 30 Days,No,High,Hamad Al-Ameri
+MADB-DISC-00291,GC-05,Console-01,GC05-TT-4234,Priority Downgrade Unapproved,56 % / bar,68 % / bar,115,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00292,GC-05,Console-05,GC05-XV-4428,Suppressed / Shelved Expired,58 % / bar,62 % / bar,10,< 15 Days,Yes,Medium,Rashid Al-Khouri
+MADB-DISC-00293,GC-04,Console-05,GC04-TT-3636,Suppressed / Shelved Expired,94 % / bar,69 % / bar,13,< 15 Days,Yes,Medium,Sultan Al-Mansouri
+MADB-DISC-00294,GC-01,Console-07,GC01-FT-3724,Priority Downgrade Unapproved,72 % / bar,90 % / bar,89,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00295,GC-05,Console-05,GC05-FT-3677,Disabled Alarm without MOC,69 % / bar,81 % / bar,54,> 30 Days,Yes,High,Sultan Al-Mansouri
+MADB-DISC-00296,GC-03,Console-04,GC03-TT-2890,Priority Downgrade Unapproved,53 % / bar,78 % / bar,91,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00297,GC-01,Console-03,GC01-PT-2839,Priority Downgrade Unapproved,71 % / bar,82 % / bar,20,16 - 30 Days,Yes,Medium,Rashid Al-Khouri
+MADB-DISC-00298,GC-03,Console-04,GC03-LT-2784,Disabled Alarm without MOC,92 % / bar,77 % / bar,16,16 - 30 Days,Yes,Medium,Gokul Raktate
+MADB-DISC-00299,GC-05,Console-05,GC05-TT-4669,Disabled Alarm without MOC,75 % / bar,66 % / bar,84,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00300,GC-03,Console-02,GC03-PT-1129,Deadband Config Divergence,79 % / bar,81 % / bar,50,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00301,GC-04,Console-06,GC04-LT-1545,Deadband Config Divergence,92 % / bar,70 % / bar,96,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00302,GC-05,Console-03,GC05-PT-4561,Priority Downgrade Unapproved,71 % / bar,64 % / bar,33,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00303,GC-01,Console-03,GC01-TT-3101,Suppressed / Shelved Expired,61 % / bar,73 % / bar,64,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00304,GC-01,Console-01,GC01-FT-3914,Deadband Config Divergence,50 % / bar,63 % / bar,103,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00305,GC-04,Console-04,GC04-TT-1606,Deadband Config Divergence,82 % / bar,68 % / bar,88,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00306,GC-05,Console-07,GC05-XV-3419,Suppressed / Shelved Expired,52 % / bar,74 % / bar,119,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00307,GC-05,Console-05,GC05-XV-4096,Disabled Alarm without MOC,76 % / bar,78 % / bar,6,< 15 Days,No,Medium,Mohammed Al-Zaabi
+MADB-DISC-00308,GC-01,Console-08,GC01-LT-4806,Disabled Alarm without MOC,64 % / bar,89 % / bar,118,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00309,GC-03,Console-04,GC03-LT-2085,Deadband Config Divergence,64 % / bar,81 % / bar,115,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00310,GC-05,Console-05,GC05-LT-2087,Setpoint Mismatch (DCS vs MADB),78 % / bar,67 % / bar,68,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00311,GC-04,Console-01,GC04-LT-1196,Setpoint Mismatch (DCS vs MADB),84 % / bar,90 % / bar,103,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00312,GC-04,Console-01,GC04-XV-4558,Deadband Config Divergence,81 % / bar,78 % / bar,99,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00313,GC-02,Console-05,GC02-PT-4504,Priority Downgrade Unapproved,71 % / bar,65 % / bar,119,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00314,GC-05,Console-04,GC05-PT-3807,Disabled Alarm without MOC,80 % / bar,60 % / bar,11,< 15 Days,No,Medium,Sultan Al-Mansouri
+MADB-DISC-00315,GC-01,Console-03,GC01-FT-1693,Deadband Config Divergence,77 % / bar,66 % / bar,86,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00316,GC-02,Console-06,GC02-PT-4134,Deadband Config Divergence,85 % / bar,80 % / bar,40,> 30 Days,Yes,High,Gokul Raktate
+MADB-DISC-00317,GC-01,Console-02,GC01-TT-4577,Setpoint Mismatch (DCS vs MADB),54 % / bar,84 % / bar,110,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00318,GC-03,Console-03,GC03-PT-4134,Disabled Alarm without MOC,84 % / bar,74 % / bar,44,> 30 Days,No,High,Nikhil Shrivastav
+MADB-DISC-00319,GC-05,Console-02,GC05-LT-3737,Suppressed / Shelved Expired,55 % / bar,71 % / bar,36,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00320,GC-02,Console-07,GC02-TT-3234,Deadband Config Divergence,55 % / bar,62 % / bar,93,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00321,GC-02,Console-03,GC02-FT-1657,Suppressed / Shelved Expired,80 % / bar,89 % / bar,105,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00322,GC-03,Console-01,GC03-FT-4496,Disabled Alarm without MOC,82 % / bar,84 % / bar,102,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00323,GC-04,Console-04,GC04-TT-1779,Suppressed / Shelved Expired,94 % / bar,62 % / bar,82,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00324,GC-02,Console-08,GC02-XV-4158,Disabled Alarm without MOC,62 % / bar,88 % / bar,50,> 30 Days,No,High,Rashid Al-Khouri
+MADB-DISC-00325,GC-01,Console-01,GC01-LT-1771,Setpoint Mismatch (DCS vs MADB),73 % / bar,80 % / bar,74,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00326,GC-03,Console-07,GC03-PT-4972,Deadband Config Divergence,56 % / bar,79 % / bar,111,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00327,GC-05,Console-02,GC05-XV-1557,Disabled Alarm without MOC,71 % / bar,63 % / bar,64,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00328,GC-05,Console-01,GC05-FT-2008,Deadband Config Divergence,52 % / bar,87 % / bar,69,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00329,GC-01,Console-01,GC01-FT-3724,Priority Downgrade Unapproved,59 % / bar,68 % / bar,90,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00330,GC-03,Console-07,GC03-PT-4995,Suppressed / Shelved Expired,69 % / bar,73 % / bar,47,> 30 Days,No,High,Rashid Al-Khouri
+MADB-DISC-00331,GC-01,Console-01,GC01-FT-2343,Priority Downgrade Unapproved,83 % / bar,79 % / bar,92,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00332,GC-05,Console-02,GC05-FT-1465,Setpoint Mismatch (DCS vs MADB),57 % / bar,65 % / bar,34,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00333,GC-05,Console-04,GC05-XV-4279,Setpoint Mismatch (DCS vs MADB),85 % / bar,84 % / bar,30,16 - 30 Days,No,Medium,Rashid Al-Khouri
+MADB-DISC-00334,GC-05,Console-02,GC05-XV-4831,Suppressed / Shelved Expired,85 % / bar,81 % / bar,112,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00335,GC-03,Console-02,GC03-LT-4082,Setpoint Mismatch (DCS vs MADB),55 % / bar,81 % / bar,40,> 30 Days,Yes,High,Ahmed Al-Shehhi
+MADB-DISC-00336,GC-03,Console-05,GC03-PT-1561,Setpoint Mismatch (DCS vs MADB),50 % / bar,63 % / bar,13,< 15 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00337,GC-04,Console-01,GC04-LT-4316,Deadband Config Divergence,60 % / bar,78 % / bar,52,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00338,GC-05,Console-04,GC05-PT-2369,Priority Downgrade Unapproved,94 % / bar,87 % / bar,24,16 - 30 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00339,GC-01,Console-01,GC01-LT-1895,Priority Downgrade Unapproved,93 % / bar,76 % / bar,22,16 - 30 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00340,GC-02,Console-07,GC02-PT-3792,Suppressed / Shelved Expired,62 % / bar,75 % / bar,113,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00341,GC-05,Console-04,GC05-PT-2761,Priority Downgrade Unapproved,83 % / bar,69 % / bar,79,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00342,GC-03,Console-03,GC03-LT-4989,Suppressed / Shelved Expired,67 % / bar,67 % / bar,53,> 30 Days,Yes,High,Rashid Al-Khouri
+MADB-DISC-00343,GC-05,Console-02,GC05-LT-2045,Suppressed / Shelved Expired,75 % / bar,78 % / bar,64,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00344,GC-02,Console-05,GC02-TT-3362,Priority Downgrade Unapproved,92 % / bar,67 % / bar,105,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00345,GC-02,Console-01,GC02-TT-2024,Setpoint Mismatch (DCS vs MADB),58 % / bar,90 % / bar,94,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00346,GC-02,Console-05,GC02-PT-3354,Setpoint Mismatch (DCS vs MADB),94 % / bar,60 % / bar,84,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00347,GC-04,Console-02,GC04-FT-1846,Disabled Alarm without MOC,57 % / bar,87 % / bar,19,16 - 30 Days,No,Medium,Gokul Raktate
+MADB-DISC-00348,GC-03,Console-06,GC03-LT-2552,Suppressed / Shelved Expired,62 % / bar,87 % / bar,88,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00349,GC-02,Console-04,GC02-LT-2447,Priority Downgrade Unapproved,65 % / bar,75 % / bar,112,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00350,GC-04,Console-05,GC04-LT-1201,Deadband Config Divergence,53 % / bar,85 % / bar,1,< 15 Days,No,Medium,Sultan Al-Mansouri
+MADB-DISC-00351,GC-01,Console-08,GC01-XV-2185,Priority Downgrade Unapproved,59 % / bar,69 % / bar,53,> 30 Days,No,High,Rashid Al-Khouri
+MADB-DISC-00352,GC-03,Console-03,GC03-LT-4151,Setpoint Mismatch (DCS vs MADB),54 % / bar,78 % / bar,61,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00353,GC-04,Console-06,GC04-FT-3639,Priority Downgrade Unapproved,67 % / bar,86 % / bar,58,> 30 Days,No,High,Nikhil Shrivastav
+MADB-DISC-00354,GC-04,Console-07,GC04-FT-1658,Disabled Alarm without MOC,51 % / bar,84 % / bar,29,16 - 30 Days,No,Medium,Sultan Al-Mansouri
+MADB-DISC-00355,GC-02,Console-08,GC02-LT-1897,Suppressed / Shelved Expired,57 % / bar,68 % / bar,66,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00356,GC-03,Console-05,GC03-PT-2114,Suppressed / Shelved Expired,51 % / bar,62 % / bar,103,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00357,GC-05,Console-02,GC05-TT-4682,Deadband Config Divergence,92 % / bar,89 % / bar,33,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00358,GC-05,Console-03,GC05-LT-3165,Setpoint Mismatch (DCS vs MADB),94 % / bar,84 % / bar,20,16 - 30 Days,Yes,Medium,Rashid Al-Khouri
+MADB-DISC-00359,GC-05,Console-07,GC05-XV-2398,Setpoint Mismatch (DCS vs MADB),69 % / bar,83 % / bar,62,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00360,GC-04,Console-05,GC04-FT-3402,Priority Downgrade Unapproved,88 % / bar,78 % / bar,81,> 30 Days,No,Critical,Nikhil Shrivastav
+MADB-DISC-00361,GC-05,Console-06,GC05-PT-2557,Disabled Alarm without MOC,70 % / bar,61 % / bar,80,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00362,GC-03,Console-06,GC03-LT-4109,Priority Downgrade Unapproved,77 % / bar,90 % / bar,69,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00363,GC-05,Console-01,GC05-PT-1423,Suppressed / Shelved Expired,52 % / bar,66 % / bar,115,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00364,GC-04,Console-07,GC04-XV-4026,Setpoint Mismatch (DCS vs MADB),78 % / bar,82 % / bar,14,< 15 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00365,GC-02,Console-04,GC02-TT-1895,Deadband Config Divergence,87 % / bar,73 % / bar,13,< 15 Days,No,Medium,Mohammed Al-Zaabi
+MADB-DISC-00366,GC-01,Console-05,GC01-XV-4645,Disabled Alarm without MOC,65 % / bar,79 % / bar,115,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00367,GC-01,Console-02,GC01-FT-4241,Suppressed / Shelved Expired,65 % / bar,61 % / bar,69,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00368,GC-04,Console-05,GC04-XV-1685,Setpoint Mismatch (DCS vs MADB),63 % / bar,85 % / bar,119,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00369,GC-04,Console-06,GC04-PT-1364,Suppressed / Shelved Expired,67 % / bar,60 % / bar,75,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00370,GC-04,Console-06,GC04-FT-4086,Disabled Alarm without MOC,56 % / bar,80 % / bar,72,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00371,GC-05,Console-01,GC05-FT-1789,Priority Downgrade Unapproved,52 % / bar,83 % / bar,106,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00372,GC-02,Console-04,GC02-TT-1810,Priority Downgrade Unapproved,78 % / bar,67 % / bar,38,> 30 Days,Yes,High,Gokul Raktate
+MADB-DISC-00373,GC-05,Console-03,GC05-PT-1483,Priority Downgrade Unapproved,69 % / bar,86 % / bar,47,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00374,GC-04,Console-03,GC04-PT-4415,Priority Downgrade Unapproved,73 % / bar,61 % / bar,61,> 30 Days,No,Critical,Sultan Al-Mansouri
+MADB-DISC-00375,GC-05,Console-03,GC05-LT-1445,Setpoint Mismatch (DCS vs MADB),59 % / bar,73 % / bar,98,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00376,GC-01,Console-07,GC01-TT-3866,Priority Downgrade Unapproved,85 % / bar,88 % / bar,35,> 30 Days,Yes,High,Gokul Raktate
+MADB-DISC-00377,GC-05,Console-06,GC05-LT-1645,Suppressed / Shelved Expired,78 % / bar,73 % / bar,69,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00378,GC-02,Console-08,GC02-FT-2294,Deadband Config Divergence,51 % / bar,66 % / bar,78,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00379,GC-04,Console-05,GC04-LT-4165,Suppressed / Shelved Expired,87 % / bar,63 % / bar,60,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00380,GC-02,Console-01,GC02-TT-4019,Suppressed / Shelved Expired,75 % / bar,89 % / bar,110,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00381,GC-05,Console-03,GC05-PT-3122,Priority Downgrade Unapproved,58 % / bar,67 % / bar,69,> 30 Days,Yes,Critical,Nikhil Shrivastav
+MADB-DISC-00382,GC-01,Console-02,GC01-TT-3208,Suppressed / Shelved Expired,55 % / bar,68 % / bar,11,< 15 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00383,GC-03,Console-06,GC03-XV-1558,Priority Downgrade Unapproved,63 % / bar,64 % / bar,6,< 15 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00384,GC-02,Console-02,GC02-XV-1606,Suppressed / Shelved Expired,90 % / bar,77 % / bar,57,> 30 Days,No,High,Gokul Raktate
+MADB-DISC-00385,GC-01,Console-06,GC01-LT-1675,Deadband Config Divergence,50 % / bar,84 % / bar,109,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00386,GC-01,Console-01,GC01-PT-1343,Deadband Config Divergence,90 % / bar,78 % / bar,22,16 - 30 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00387,GC-01,Console-02,GC01-TT-2970,Setpoint Mismatch (DCS vs MADB),91 % / bar,71 % / bar,57,> 30 Days,Yes,High,Hamad Al-Ameri
+MADB-DISC-00388,GC-01,Console-01,GC01-TT-2448,Deadband Config Divergence,82 % / bar,80 % / bar,49,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00389,GC-03,Console-05,GC03-FT-1653,Setpoint Mismatch (DCS vs MADB),92 % / bar,78 % / bar,70,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00390,GC-05,Console-08,GC05-FT-3012,Suppressed / Shelved Expired,61 % / bar,86 % / bar,117,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00391,GC-03,Console-01,GC03-FT-2555,Disabled Alarm without MOC,51 % / bar,61 % / bar,6,< 15 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00392,GC-05,Console-01,GC05-PT-3712,Deadband Config Divergence,90 % / bar,70 % / bar,114,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00393,GC-01,Console-06,GC01-XV-2127,Suppressed / Shelved Expired,57 % / bar,67 % / bar,20,16 - 30 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00394,GC-04,Console-03,GC04-FT-3096,Priority Downgrade Unapproved,73 % / bar,69 % / bar,42,> 30 Days,No,High,Mohammed Al-Zaabi
+MADB-DISC-00395,GC-02,Console-07,GC02-PT-3264,Setpoint Mismatch (DCS vs MADB),63 % / bar,67 % / bar,81,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00396,GC-04,Console-08,GC04-XV-2455,Setpoint Mismatch (DCS vs MADB),83 % / bar,65 % / bar,99,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00397,GC-02,Console-02,GC02-PT-2097,Setpoint Mismatch (DCS vs MADB),66 % / bar,86 % / bar,119,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00398,GC-05,Console-02,GC05-XV-4749,Suppressed / Shelved Expired,66 % / bar,90 % / bar,95,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00399,GC-02,Console-08,GC02-LT-4607,Priority Downgrade Unapproved,62 % / bar,76 % / bar,67,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00400,GC-01,Console-07,GC01-FT-1993,Priority Downgrade Unapproved,75 % / bar,79 % / bar,87,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00401,GC-03,Console-03,GC03-XV-3341,Deadband Config Divergence,65 % / bar,88 % / bar,53,> 30 Days,No,High,Mohammed Al-Zaabi
+MADB-DISC-00402,GC-04,Console-03,GC04-FT-3959,Suppressed / Shelved Expired,66 % / bar,62 % / bar,56,> 30 Days,No,High,Rashid Al-Khouri
+MADB-DISC-00403,GC-04,Console-01,GC04-LT-2195,Disabled Alarm without MOC,73 % / bar,84 % / bar,21,16 - 30 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00404,GC-03,Console-01,GC03-TT-2652,Priority Downgrade Unapproved,84 % / bar,81 % / bar,93,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00405,GC-02,Console-05,GC02-TT-4929,Setpoint Mismatch (DCS vs MADB),69 % / bar,73 % / bar,86,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00406,GC-03,Console-05,GC03-XV-3359,Suppressed / Shelved Expired,64 % / bar,83 % / bar,65,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00407,GC-01,Console-06,GC01-TT-3278,Suppressed / Shelved Expired,71 % / bar,83 % / bar,67,> 30 Days,No,Critical,Rashid Al-Khouri
+MADB-DISC-00408,GC-02,Console-08,GC02-XV-4407,Setpoint Mismatch (DCS vs MADB),68 % / bar,81 % / bar,87,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00409,GC-01,Console-05,GC01-TT-1839,Priority Downgrade Unapproved,72 % / bar,66 % / bar,27,16 - 30 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00410,GC-05,Console-05,GC05-XV-2291,Setpoint Mismatch (DCS vs MADB),59 % / bar,85 % / bar,51,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00411,GC-01,Console-02,GC01-PT-3914,Suppressed / Shelved Expired,57 % / bar,77 % / bar,59,> 30 Days,Yes,High,Gokul Raktate
+MADB-DISC-00412,GC-01,Console-04,GC01-TT-3431,Setpoint Mismatch (DCS vs MADB),63 % / bar,64 % / bar,81,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00413,GC-04,Console-06,GC04-TT-1161,Disabled Alarm without MOC,55 % / bar,89 % / bar,110,> 30 Days,No,Critical,Mohammed Al-Zaabi
+MADB-DISC-00414,GC-05,Console-08,GC05-FT-2595,Setpoint Mismatch (DCS vs MADB),76 % / bar,84 % / bar,60,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00415,GC-05,Console-01,GC05-PT-4734,Priority Downgrade Unapproved,51 % / bar,78 % / bar,27,16 - 30 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00416,GC-01,Console-06,GC01-LT-1459,Suppressed / Shelved Expired,50 % / bar,67 % / bar,17,16 - 30 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00417,GC-04,Console-06,GC04-LT-3609,Disabled Alarm without MOC,88 % / bar,63 % / bar,34,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00418,GC-04,Console-01,GC04-XV-3786,Priority Downgrade Unapproved,72 % / bar,64 % / bar,51,> 30 Days,No,High,Nikhil Shrivastav
+MADB-DISC-00419,GC-01,Console-02,GC01-FT-3473,Setpoint Mismatch (DCS vs MADB),90 % / bar,84 % / bar,104,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00420,GC-05,Console-05,GC05-PT-3209,Deadband Config Divergence,80 % / bar,70 % / bar,29,16 - 30 Days,No,Medium,Hamad Al-Ameri
+MADB-DISC-00421,GC-01,Console-03,GC01-LT-1798,Priority Downgrade Unapproved,88 % / bar,79 % / bar,105,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00422,GC-05,Console-03,GC05-PT-1984,Disabled Alarm without MOC,54 % / bar,62 % / bar,36,> 30 Days,No,High,Ahmed Al-Shehhi
+MADB-DISC-00423,GC-03,Console-01,GC03-FT-1533,Suppressed / Shelved Expired,52 % / bar,86 % / bar,69,> 30 Days,No,Critical,Gokul Raktate
+MADB-DISC-00424,GC-03,Console-01,GC03-FT-1974,Disabled Alarm without MOC,52 % / bar,76 % / bar,120,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00425,GC-01,Console-02,GC01-TT-2748,Setpoint Mismatch (DCS vs MADB),53 % / bar,76 % / bar,6,< 15 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00426,GC-02,Console-06,GC02-LT-2630,Suppressed / Shelved Expired,51 % / bar,72 % / bar,12,< 15 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00427,GC-02,Console-08,GC02-PT-2313,Priority Downgrade Unapproved,63 % / bar,68 % / bar,13,< 15 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00428,GC-03,Console-06,GC03-PT-4349,Disabled Alarm without MOC,86 % / bar,63 % / bar,66,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00429,GC-04,Console-08,GC04-LT-4126,Suppressed / Shelved Expired,63 % / bar,76 % / bar,83,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00430,GC-03,Console-05,GC03-PT-1475,Priority Downgrade Unapproved,83 % / bar,74 % / bar,39,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00431,GC-02,Console-06,GC02-FT-1973,Disabled Alarm without MOC,83 % / bar,64 % / bar,111,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00432,GC-04,Console-01,GC04-TT-1958,Deadband Config Divergence,56 % / bar,81 % / bar,79,> 30 Days,Yes,Critical,Mohammed Al-Zaabi
+MADB-DISC-00433,GC-03,Console-08,GC03-PT-3481,Setpoint Mismatch (DCS vs MADB),87 % / bar,82 % / bar,65,> 30 Days,No,Critical,Hamad Al-Ameri
+MADB-DISC-00434,GC-01,Console-05,GC01-FT-3352,Priority Downgrade Unapproved,66 % / bar,78 % / bar,120,> 30 Days,No,Critical,Ahmed Al-Shehhi
+MADB-DISC-00435,GC-02,Console-07,GC02-XV-3893,Suppressed / Shelved Expired,89 % / bar,78 % / bar,80,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
+MADB-DISC-00436,GC-04,Console-05,GC04-XV-3629,Suppressed / Shelved Expired,93 % / bar,81 % / bar,98,> 30 Days,Yes,Critical,Gokul Raktate
+MADB-DISC-00437,GC-04,Console-02,GC04-XV-2211,Priority Downgrade Unapproved,74 % / bar,80 % / bar,69,> 30 Days,Yes,Critical,Hamad Al-Ameri
+MADB-DISC-00438,GC-05,Console-04,GC05-TT-2354,Suppressed / Shelved Expired,82 % / bar,88 % / bar,14,< 15 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00439,GC-03,Console-04,GC03-TT-4648,Priority Downgrade Unapproved,64 % / bar,69 % / bar,14,< 15 Days,No,Medium,Nikhil Shrivastav
+MADB-DISC-00440,GC-02,Console-07,GC02-LT-3310,Suppressed / Shelved Expired,51 % / bar,77 % / bar,8,< 15 Days,No,Medium,Gokul Raktate
+MADB-DISC-00441,GC-04,Console-03,GC04-LT-3623,Setpoint Mismatch (DCS vs MADB),91 % / bar,74 % / bar,59,> 30 Days,Yes,High,Mohammed Al-Zaabi
+MADB-DISC-00442,GC-02,Console-04,GC02-FT-3301,Priority Downgrade Unapproved,92 % / bar,81 % / bar,67,> 30 Days,Yes,Critical,Rashid Al-Khouri
+MADB-DISC-00443,GC-05,Console-06,GC05-TT-4681,Suppressed / Shelved Expired,51 % / bar,86 % / bar,18,16 - 30 Days,Yes,Medium,Hamad Al-Ameri
+MADB-DISC-00444,GC-03,Console-01,GC03-FT-4933,Disabled Alarm without MOC,94 % / bar,78 % / bar,114,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00445,GC-05,Console-07,GC05-FT-1123,Suppressed / Shelved Expired,75 % / bar,78 % / bar,103,> 30 Days,Yes,Critical,Sultan Al-Mansouri
+MADB-DISC-00446,GC-03,Console-03,GC03-LT-3708,Deadband Config Divergence,86 % / bar,72 % / bar,12,< 15 Days,Yes,Medium,Ahmed Al-Shehhi
+MADB-DISC-00447,GC-03,Console-07,GC03-PT-4783,Priority Downgrade Unapproved,77 % / bar,63 % / bar,2,< 15 Days,Yes,Medium,Nikhil Shrivastav
+MADB-DISC-00448,GC-02,Console-04,GC02-XV-2285,Suppressed / Shelved Expired,57 % / bar,68 % / bar,44,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00449,GC-02,Console-05,GC02-LT-3218,Priority Downgrade Unapproved,69 % / bar,87 % / bar,31,> 30 Days,Yes,High,Nikhil Shrivastav
+MADB-DISC-00450,GC-05,Console-05,GC05-PT-4501,Setpoint Mismatch (DCS vs MADB),64 % / bar,60 % / bar,107,> 30 Days,Yes,Critical,Ahmed Al-Shehhi
