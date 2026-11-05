@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "marked": "^18.0.14",
+    "microsoft-cognitiveservices-speech-sdk": "^1.53.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4"

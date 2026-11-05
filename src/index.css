@@ -3783,3 +3783,211 @@ body.light-theme .oasis-launcher-btn:hover {
 
 
 
+
+/* ==========================================================================
+   AZURE REAL-TIME AVATAR & SPEECH INTERACTIVE UI MODES (Screenshot 1 & 2)
+   ========================================================================== */
+
+/* Mode 1: Compact Card View (Matching Screenshot 1) */
+.oasis-widget-popup.mode-card {
+  width: 380px;
+  height: 520px;
+  border-radius: 28px;
+  background: radial-gradient(circle at 50% 25%, #152642 0%, #08111f 75%, #050a14 100%);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(14, 165, 233, 0.16);
+}
+
+.oasis-widget-popup.mode-card .oasis-widget-header {
+  background: transparent;
+  border-bottom: none;
+  padding: 14px 18px 0 18px;
+}
+
+.oasis-compact-card-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 24px 28px 24px;
+  height: 100%;
+  justifyContent: center;
+}
+
+.oasis-card-orb-wrapper {
+  margin: 4px 0 16px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oasis-card-title {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.2px;
+  margin-bottom: 6px;
+}
+
+.oasis-card-greeting-sub {
+  font-size: 13.5px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.oasis-card-heading {
+  font-size: 23px;
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  letter-spacing: -0.4px;
+}
+
+.oasis-card-input-wrapper {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
+.oasis-card-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #f8fafc;
+  font-size: 13.5px;
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.oasis-card-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.oasis-card-input::placeholder {
+  color: #64748b;
+}
+
+/* 3 Primary Action Buttons (Chat, Mic, Video Avatar) */
+.oasis-mode-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+.oasis-mode-action-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.oasis-mode-action-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.3);
+}
+
+.oasis-mode-action-btn.active {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #0284c7;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.oasis-mode-action-btn.listening {
+  background: #ef4444;
+  border-color: #f87171;
+  color: #ffffff;
+  animation: oasis-mic-pulse 1.2s infinite;
+}
+
+@keyframes oasis-mic-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+/* Mode 2: Dual-Pane Avatar View (Matching Screenshot 2) */
+.oasis-widget-popup.mode-avatar {
+  width: min(980px, calc(100vw - 32px));
+  height: min(650px, calc(100vh - 40px));
+  border-radius: 20px;
+  background: radial-gradient(circle at 50% 0%, #0d1e38 0%, #070d18 80%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 32px 85px -15px rgba(0, 0, 0, 0.95), 0 0 50px rgba(14, 165, 233, 0.2);
+}
+
+.oasis-dual-pane-layout {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  padding: 14px 18px 8px 18px;
+}
+
+.oasis-dual-pane-left {
+  flex: 0 0 46%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.oasis-dual-pane-right {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.oasis-avatar-footer-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px 12px 18px;
+  gap: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(8, 14, 26, 0.95);
+}
+
+@media (max-width: 820px) {
+  .oasis-dual-pane-layout {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .oasis-dual-pane-left {
+    flex: 0 0 auto;
+    height: 320px;
+    width: 100%;
+  }
+  .oasis-dual-pane-right {
+    flex: 1;
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 14px;
+  }
+}

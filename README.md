@@ -8,6 +8,11 @@ The solution integrates a **React 19 micro-frontend widget** with **Microsoft Co
 
 ## 🌟 Key Features
 
+* **Azure AI Real-Time Talking Avatar & Speech (WebRTC):** Seamlessly stream Microsoft Azure AI Speech Avatars (or realistic Emirati Operations Lead persona) with synchronized lip movement, live audio waveform visualizer, and microphone voice transcription (STT/TTS).
+* **3 Interactive UI Modes:**
+  1. **Mode 1 (Compact Card):** Central 3D Orb, greeting ("Hello Utkarsha - How Can I Help you today?"), quick inquiry input bar, and 3 circular glassmorphic action buttons (💬 Chat, 🎙️ Mic, 📹 Video Avatar).
+  2. **Mode 2 (Dual-Pane Avatar Window):** Live WebRTC talking video avatar / persona on the left with audio waveform visualizer and red end-call button, paired with the full live conversation stream on the right.
+  3. **Mode 3 (Standard Chat Window):** Extended message history, thinking section, and markdown tables.
 * **4 Live Navigable Operational Dashboards:**
   1. **Alarm Champion Command Center:** Rolling 1-hour and 10-minute performance metrics categorized by States 1 to 4 (Robust, Stable, Reactive, Overloaded).
   2. **Operational Integrity Envelope (OIE):** Safe Operating Limit (SOL) excursions, OWEL margins, and Pressure Relief Device (PRD) activation monitors.
@@ -17,6 +22,34 @@ The solution integrates a **React 19 micro-frontend widget** with **Microsoft Co
 * **Direct Line Secret Key Embed:** Natively connects to Microsoft Copilot Studio without third-party or Microsoft WebChat SDK dependencies.
 * **SharePoint Data Lake:** Pre-generated granular datasets (1,200 alarm logs, 350 OIE loops, 450 MADB deviations) ready for Copilot Studio Knowledge grounding.
 * **Interactive Client Documentation:** Complete 64-feature feasibility matrix with responsive styling and embedded diagrams.
+
+---
+
+## 🎙️ Azure AI Speech & Real-Time Avatar Setup
+
+The application features full Azure AI Speech SDK integration (`microsoft-cognitiveservices-speech-sdk`) with WebRTC real-time avatar streaming:
+
+### 1. In-App Settings Configuration (Recommended)
+1. Open the Chatbot by clicking the floating **OASIS Orb** in the bottom-right corner.
+2. Click the **⚙️ Settings Gear Icon** at the top right of the widget.
+3. Switch to the **📹 Azure Avatar & Voice** tab:
+   * **Azure Speech Key:** Your Azure Cognitive Services Speech API Key.
+   * **Speech Region:** e.g., `westeurope`, `eastus2`, `southeastasia` (default: `westeurope`).
+   * **Avatar Character:** e.g., `lisa` or custom character model.
+   * **Avatar Style:** `casual` or `technical`.
+   * **Speech Voice:** `en-US-JennyNeural`, `ar-AE-FatimaNeural` (Emirati Arabic), or `ar-AE-HamdanNeural`.
+4. Click **Save Settings**. The settings persist in your browser's `localStorage`.
+
+### 2. (Optional) Environment Variables
+You can also supply defaults via `.env`:
+```env
+VITE_AZURE_SPEECH_KEY=your_azure_speech_key_here
+VITE_AZURE_SPEECH_REGION=westeurope
+VITE_AZURE_AVATAR_CHARACTER=lisa
+VITE_AZURE_AVATAR_STYLE=casual
+VITE_AZURE_SPEECH_VOICE=en-US-JennyNeural
+VITE_DIRECT_LINE_SECRET=your_direct_line_secret_key_here
+```
 
 ---
 
